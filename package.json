@@ -10,7 +10,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "babel-cli": "^6.16.0",
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
     "express": "^4.14.0",
-    "path": "^0.12.7"
+    "jquery": "^3.1.1",
+    "path": "^0.12.7",
+    "react": "^15.3.2"
   }
 }
