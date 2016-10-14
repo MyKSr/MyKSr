@@ -25,6 +25,7 @@ app.post('/postrating', (req, res) => {
     if(err){
       console.log('DID NOT POST TO DB', err);
     }
+    res.send('success!');
     console.log('POSTED TO DB');
     console.log(rows);
   });
