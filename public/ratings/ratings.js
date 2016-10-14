@@ -13,5 +13,7 @@ angular.module('myksr.ratings', [])
   	}, function(res) {
   		console.error(res);
   	});
+
+  	$scope.rate = "";
   }
 });
