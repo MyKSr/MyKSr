@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html ng-app="myksr">
 <head>
-	<title>| MyKSr</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+  <title>| MyKSr</title>
 </head>
 <body>
-  <div class="navbar"></div>
+  <div class="navbar">
+    <span>
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/77/fb/b0/77fbb039010fc805e96336a62b0cccc5.png">
+    </span>
+  </div>
   <div class="main">
     <h1>Welcome to MyKSr!</h1>
-    <p>Need friends? You've come to the right place.</p>
+    <p>Give your friends feedback.</p>
     <div ng-view></div>
   </div>
   <script src="angular/angular.js"></script>
   <script src="angular-route/angular-route.js"></script>
   <script src="app.js"></script>
-  <script src="users.js"></script>
+  <script src="profile/profile.js"></script>
+  <script src="ratings/ratings.js"></script>
+  <script src="result/result.js"></script>
 </body>
 </html>
