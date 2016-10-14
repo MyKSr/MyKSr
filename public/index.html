@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myksr">
 <head>
 	<title>| MyKSr</title>
 </head>
 <body>
-  <h1>Welcome to MyKSr!</h1>
-  <p>Need friends? You've come to the right place.</p>
+  <div class="navbar"></div>
+  <div class="main">
+    <h1>Welcome to MyKSr!</h1>
+    <p>Need friends? You've come to the right place.</p>
+    <div ng-view></div>
+  </div>
+  <script src="/node_modules/angular/angular.js"></script>
+  <script src="/node_modules/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="users.js"></script>
 </body>
 </html>
