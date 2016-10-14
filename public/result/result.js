@@ -1,5 +1,5 @@
-angular.module('myksr.result', [])
+angular.module('myksr.result', ['myksr.ratings'])
 
 .controller('ResultCtrl', function($scope) {
-  $scope.result = "55555555";
+  $scope.result = $scope.data.input;
 });

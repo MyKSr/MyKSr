@@ -1,6 +1,6 @@
 angular.module('myksr.ratings', [])
 
-.controller('RatingsCtrl', function($scope, $http) {
+.controller('RatingsCtrl', function($scope, $http, $window) {
   $scope.data = {};
 
   $scope.submit = function() {
@@ -9,11 +9,17 @@ angular.module('myksr.ratings', [])
   		url: '/postrating',
       data: {rate: $scope.rate}
   	}).then(function(res) {
-  		console.log('CLIENT POST RES ',res);
-  	}, function(res) {
-  		console.error(res);
-  	});
+      $window.location = '#/result';
+      console.log('CLIENT POST RES ',res);
+    }, function(res) {
+      console.error(res);
+    });
 
-  	$scope.rate = "";
+    $scope.rate = "";
+
   }
+})
+.service('ratingService', function(){
+    $scope.data.input = $scope.rate;
 });
+
