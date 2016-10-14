@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended : false}));
 
 //load static files
 app.use(express.static(`${__dirname}/../public`));
+app.use(express.static(`${__dirname}/../node_modules`));
 
 //get and post requests goes here
 app.get('/users', (req, res) => {
