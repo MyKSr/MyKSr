@@ -1,0 +1,14 @@
+img {
+  width:60px;
+  height: auto;
+}
+
+.main {
+  text-align: center;
+}
+
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}

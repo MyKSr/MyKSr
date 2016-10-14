@@ -3,7 +3,7 @@ CREATE DATABASE myksr;
 
 use myksr;
 
-/* Users table has id, name, gender and 
+/* Users table has id, name, gender and
 all other information that has been filled in by themselves (on login)*/
 CREATE TABLE users (
   id int NOT NULL AUTO_INCREMENT,
@@ -32,5 +32,5 @@ CREATE TABLE ratings (
 
 
 /*  Execute this file from the command line by typing:
- *    mysql -u root < server/schema.sql
+ *    mysql -u root < db/schema.sql
  *  to create the database and the tables.*/
