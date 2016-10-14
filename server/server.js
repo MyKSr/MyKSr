@@ -13,8 +13,8 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(express.static(`${__dirname}/../public`));
 
 //get and post requests goes here
-app.get('/', (req, res) => {
-  res.status(200).send('success!');
+app.get('/users', (req, res) => {
+  res.status(200).send('Success!');
 });
 
 //start server
