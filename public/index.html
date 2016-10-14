@@ -5,11 +5,11 @@
   <title>| Myksr</title>
 </head>
 <body>
-  <div class="navbar">
+  <div class="navbar" ng-controller="appCtrl">
     <span>
-    <img src="https://s-media-cache-ak0.pinimg.com/originals/77/fb/b0/77fbb039010fc805e96336a62b0cccc5.png">
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/77/fb/b0/77fbb039010fc805e96336a62b0cccc5.png" ng-click="home()">
     </span>
-    <span ng-controller="appCtrl">
+    <span>
       <button ng-click="redirect()">Go to my profile</button>
     </span>
   </div>
