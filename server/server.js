@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/db.js');
-const request = require('request');
 
 const app = express();
 //set up the port, 3000 by default
