@@ -5,7 +5,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "users"
+  database: "myksr"
 });
 
 db.connect((err) => {
@@ -17,6 +17,4 @@ db.connect((err) => {
   console.log('Connection to db established!');
 });
 
-
 module.exports = db;
-
