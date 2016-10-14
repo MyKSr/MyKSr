@@ -19,3 +19,9 @@ myksr.config(function($routeProvider) {
     redirectTo: '/'
   });
 });
+
+myksr.controller('appCtrl', function($scope, $window){
+  $scope.redirect = function(){
+    $window.location = '#/profile';
+  }
+});

@@ -14,7 +14,7 @@ app.use(express.static(`${__dirname}/../public`));
 app.use(express.static(`${__dirname}/../node_modules`));
 
 //get and post requests goes here
-app.get('/users', (req, res) => {
+app.get('/', (req, res) => {
   res.status(200).send('Success!');
 });
 

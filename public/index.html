@@ -2,16 +2,20 @@
 <html ng-app="myksr">
 <head>
 <link rel="stylesheet" type="text/css" href="styles.css">
-  <title>| MyKSr</title>
+  <title>| Myksr</title>
 </head>
 <body>
   <div class="navbar">
     <span>
     <img src="https://s-media-cache-ak0.pinimg.com/originals/77/fb/b0/77fbb039010fc805e96336a62b0cccc5.png">
     </span>
+    <span ng-controller="appCtrl">
+      <button ng-click="redirect()">Go to my profile</button>
+    </span>
   </div>
   <div class="main">
-    <h1>Welcome to MyKSr!</h1>
+    <h1>Welcome to Myksr!</h1>
+    <h2>Stay inside your circle with Myksr.</h2>
     <p>Give your friends feedback.</p>
     <div ng-view></div>
   </div>

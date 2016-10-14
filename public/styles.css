@@ -6,3 +6,9 @@ img {
 .main {
   text-align: center;
 }
+
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
