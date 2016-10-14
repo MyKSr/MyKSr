@@ -24,4 +24,9 @@ myksr.controller('appCtrl', function($scope, $window){
   $scope.redirect = function(){
     $window.location = '#/profile';
   }
+
+  $scope.home = function(){
+    $window.location = '#/';
+  }
 });
+
