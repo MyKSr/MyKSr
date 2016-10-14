@@ -1,18 +1,25 @@
+
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
+  host: "localhost",
   user: "root",
   password: "",
-  database:'myksr'
+  database: "users"
 });
 
 db.connect((err) => {
   if(err){
-    console.log('Connected to db failed!');
+    console.log('Connection to db failed!');
     console.error(err);
     return;
   }
   console.log('Connection to db established!');
 });
 
-module.exports = db;
+db.query('SELECT * from users', (err, rows) => {
+  //what to do with data here
+  console.log(rows);
+});
+
+db.end();
