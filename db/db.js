@@ -3,18 +3,22 @@ const mysql = require('mysql');
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: ""
+  password: "",
+  database: "users"
 });
 
 db.connect((err) => {
   if(err){
-    console.log('Connected to db failed!');
+    console.log('Connection to db failed!');
     console.error(err);
     return;
   }
   console.log('Connection to db established!');
 });
 
-db.end((err) => {
-
+db.query('SELECT * from users', (err, rows) => {
+  //what to do with data here
+  console.log(rows);
 });
+
+db.end();
