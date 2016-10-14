@@ -1,3 +1,4 @@
+
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
@@ -16,9 +17,6 @@ db.connect((err) => {
   console.log('Connection to db established!');
 });
 
-db.query('SELECT * from users', (err, rows) => {
-  //what to do with data here
-  console.log(rows);
-});
 
-db.end();
+module.exports = db;
+
