@@ -1,5 +1,7 @@
-angular.module('myksr.result', ['myksr.ratings'])
+angular.module('myksr.result', ['myksr.services'])
 
-.controller('ResultCtrl', function($scope) {
-  $scope.result = $scope.data.input;
+.controller('ResultCtrl', function($scope, factory) {
+  console.log('INSIDE RESULTS ', factory);
+
+  $scope.result = factory;
 });

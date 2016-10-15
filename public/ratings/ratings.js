@@ -1,7 +1,6 @@
 angular.module('myksr.ratings', [])
 
 .controller('RatingsCtrl', function($scope, $http, $window) {
-  $scope.data = {};
 
   $scope.submit = function() {
   	$http({
@@ -19,7 +18,7 @@ angular.module('myksr.ratings', [])
 
   }
 })
-.service('ratingService', function(){
-    $scope.data.input = $scope.rate;
+.factory('ratingService', function(){
+    this.currentRating = 0;
 });
 
