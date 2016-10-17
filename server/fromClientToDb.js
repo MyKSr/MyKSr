@@ -8,12 +8,10 @@ var db = require('../db/db.js');
 //   rated:'Victor'}
 // })
 
+// Client side must send the url with the correct parameters as /:rater/:rated format
 module.exports.clickPhotoRequestHandler = function(req, res){
-  // var Brater = req.body.rater;
-  // var Brated = req.body.rated;
-  // console.log('direct',rater, rated);
-  // console.log('using body',Brater, Brated);
-  // console.log('using req',req.rater, req.rated);
+  // var rater = req.params.rater;
+  // var rated = req.params.rated;
   // var queryString = `SELECT rating, userIdRater, userIdRated
   //                    FROM ratings where userIdRater=${rater}
   //                    AND WHERE userIdRated=${rated};
@@ -26,4 +24,16 @@ module.exports.clickPhotoRequestHandler = function(req, res){
     // console.log(rows);
   // })
   res.send('success');
+}
+module.exports.postRatingToDB = (req, res) => {
+  console.log('POST REQ BODY ',req.body.rate);
+  db.query(`INSERT INTO ratings (id, rating, userIdRated, userIdRater) VALUES 
+    (null, ${req.body.rate}, ${req.body.rated}, ${req.body.rater})`, (err, rows) => {
+    if (err) {
+      console.log('DID NOT POST TO DB', err);
+    }
+    console.log('POSTED TO DB');
+    console.log(rows);
+    res.send(200, 'Successfully posted the user data');
+  });
 }
