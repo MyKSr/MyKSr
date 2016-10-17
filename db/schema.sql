@@ -5,26 +5,32 @@ use myksr;
 
 /* Users table has id, name, gender and
 all other information that has been filled in by themselves (on login)*/
-CREATE TABLE users (
-  id int NOT NULL AUTO_INCREMENT,
+CREATE TABLE rater (
+  raterId int NOT NULL AUTO_INCREMENT,
   name varchar(20),
   gender varchar(1),
-  PRIMARY KEY(id)
+  PRIMARY KEY(raterId)
 );
 
+CREATE TABLE rated (
+  ratedId int NOT NULL AUTO_INCREMENT,
+  name varchar(20),
+  gender varchar(1),
+  PRIMARY KEY(ratedId)
+);
 
 /* Create other tables and define schemas for them here! */
 CREATE TABLE ratings (
   id int NOT NULL AUTO_INCREMENT,
   rating int NOT NULL,
-  userIdRated int NOT NULL,
-  userIdRater int NOT NULL,
+  raterId int NOT NULL,
+  ratedId int NOT NULL,
   PRIMARY KEY(id),
-  FOREIGN KEY (userIdRater)
-    REFERENCES users(id)
+  FOREIGN KEY (raterId)
+    REFERENCES rater(raterId)
       ON DELETE CASCADE,
-  FOREIGN KEY (userIdRated)
-    REFERENCES users(id)
+  FOREIGN KEY (ratedId)
+    REFERENCES rated(ratedId)
       ON DELETE CASCADE
 );
 

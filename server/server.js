@@ -1,6 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../db/db.js');
+const request = require('request');
+const clientToDB = require('./fromClientToDb');
 
 const app = express();
 //set up the port, 3000 by default
@@ -15,21 +17,9 @@ app.use(express.static(`${__dirname}/../public`));
 app.use(express.static(`${__dirname}/../node_modules`));
 
 //get and post requests goes here
-app.get('/', (req, res) => {
-  res.status(200).send('Success!');
-});
+app.get('/:rater/:rated', clientToDB.clickPhotoRequestHandler);
 
-app.post('/postrating', (req, res) => {
-  console.log('POST REQ BODY ',req.body.rate);
-  db.query(`INSERT INTO ratings (id, rating, userIdRated, userIdRater) VALUES (null, ${req.body.rate}, 1, 1)`, (err, rows) => {
-    if(err){
-      console.log('DID NOT POST TO DB', err);
-    }
-    res.send('success!');
-    console.log('POSTED TO DB');
-    console.log(rows);
-  });
-});
+app.post('/postrating', clientToDB.postRatingToDB);
 
 //start server
 app.listen(port, () => {
