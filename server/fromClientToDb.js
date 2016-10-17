@@ -10,19 +10,22 @@ var db = require('../db/db.js');
 
 // Client side must send the url with the correct parameters as /:rater/:rated format
 module.exports.clickPhotoRequestHandler = function(req, res){
-  // var rater = req.params.rater;
-  // var rated = req.params.rated;
-  // var queryString = `SELECT rating, userIdRater, userIdRated
-  //                    FROM ratings where userIdRater=${rater}
-  //                    AND WHERE userIdRated=${rated};
-  //                   `
-  // db.query(queryString, function(err, rows) {
-  //   if (err) {
-  //     console.error(err);
-  //   }
-  //   res.send(rows);
-    // console.log(rows);
-  // })
+  var rater = req.params.rater;
+  var rated = req.params.rated;
+  var queryString = `SELECT rating, userIdRater, userIdRated
+                     FROM ratings 
+                     INNER JOIN rater on rater.id = ratings.raterId
+                     INNER JOIN rated on rated.id = ratings.ratedId
+                     WHERE rater.name='${rater}' AND 
+                     WHERE rated.name='${rated}';
+                    `
+  db.query(queryString, function(err, rows) {
+    if (err) {
+      console.error(err);
+    }
+    res.send(rows);
+    console.log(rows);
+  })
   res.send('success');
 }
 module.exports.postRatingToDB = (req, res) => {
