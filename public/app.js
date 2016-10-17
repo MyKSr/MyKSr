@@ -1,8 +1,12 @@
-const myksr = angular.module('myksr', [ 'myksr.ratings', 'myksr.profile', 'myksr.result', 'myksr.services', 'ngRoute' ]);
+const myksr = angular.module('myksr', [ 'myksr.ratings', 'myksr.profile', 'myksr.result', 'myksr.services', 'myksr.users', 'ngRoute' ]);
 
 myksr.config(function($routeProvider) {
 
   $routeProvider
+  .when('/', {
+    templateUrl: 'users/users.html',
+    controller: 'UsersCtrl'
+  })
   .when('/ratings', {
     templateUrl: 'ratings/ratings.html',
     controller: 'RatingsCtrl'
