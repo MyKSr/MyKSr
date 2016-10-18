@@ -4,8 +4,8 @@ myksr.config(function($routeProvider) {
 
   $routeProvider
   .when('/', {
-    templateUrl: 'users/users.html',
-    controller: 'UsersCtrl'
+    templateUrl: 'login/login.html',
+    controller: 'LoginCtrl'
   })
   .when('/ratings', {
     templateUrl: 'ratings/ratings.html',
