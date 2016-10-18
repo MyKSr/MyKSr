@@ -37,6 +37,10 @@ myksr.controller('appCtrl', function($scope, $window){
     $window.location = '#/profile';
   }
 
+  $scope.goToRatings = function(){
+    $window.location = '#/ratings';
+  }
+
   $scope.home = function(){
     $window.location = '#/';
   }
