@@ -18,6 +18,7 @@ module.exports.clickPhotoRequestHandler = function(req, res){
     console.log(rows);
     res.send('success');
   })
+
 }
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
