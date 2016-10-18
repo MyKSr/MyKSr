@@ -35,3 +35,21 @@ module.exports.postRatingToDB = (req, res) => {
     res.send(200, 'Successfully posted the user data');
   });
 }
+
+module.exports.postSignupToDB = (req, res) => {
+  var firstname = req.body.firstname;
+  var lastname = req.body.lastname;
+  var username = req.body.username;
+  var email = req.body.email;
+  var password = req.body.password;
+  console.log('post req body', firstname, lastname, username, email, password);
+  var queryString = `INSERT INTO users (id, firstname, lastname, username, email, password) VALUES
+                   (null, '${firstname}', '${lastname}', '${username}', '${email}', '${password}');`;
+  db.query(queryString, function(err, rows) {
+    if (err) {
+      console.log('Failed to post DB');
+      throw err;
+    }
+    res.send(200, 'Successfully posted the user data');
+  });
+}
