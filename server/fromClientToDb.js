@@ -5,25 +5,25 @@ module.exports.clickPhotoRequestHandler = function(req, res){
   var rater = req.params.rater;
   var rated = req.params.rated;
   var queryString = `SELECT rating, raterId, ratedId
-                     FROM ratings 
-                     INNER JOIN rater on ratings.raterId = rater.id 
+                     FROM ratings
+                     INNER JOIN rater on ratings.raterId = rater.id
                      INNER JOIN rated on ratings.ratedId = rated.id
-                     WHERE rater.name='${rater}' AND 
+                     WHERE rater.name='${rater}' AND
                      WHERE rated.name='${rated}';
                     `;
   db.query(queryString, function(err, rows) {
     if (err) {
       console.error(err);
     }
-    // res.send(rows); 
+    // res.send(rows);
     console.log(rows);
     res.send('success');
   })
 }
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
-  var queryString = `INSERT INTO ratings 
-                     (id, rating, userIdRated, userIdRater) VALUES 
+  var queryString = `INSERT INTO ratings
+                     (id, rating, userIdRated, userIdRater) VALUES
                      (null, ${req.body.rate}, ${req.body.rated}, ${req.body.rater});
                      `;
   db.query(queryString, (err, rows) => {
