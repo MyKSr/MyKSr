@@ -22,8 +22,11 @@ module.exports.clickPhotoRequestHandler = function(req, res){
 }
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
-  db.query(`INSERT INTO ratings (id, rating, userIdRated, userIdRater) VALUES 
-    (null, ${req.body.rate}, ${req.body.rated}, ${req.body.rater})`, (err, rows) => {
+  var queryString = `INSERT INTO ratings 
+                     (id, rating, userIdRated, userIdRater) VALUES 
+                     (null, ${req.body.rate}, ${req.body.rated}, ${req.body.rater});
+                     `;
+  db.query(queryString, (err, rows) => {
     if (err) {
       console.log('DID NOT POST TO DB', err);
     }
