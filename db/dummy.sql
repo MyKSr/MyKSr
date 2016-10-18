@@ -2,10 +2,10 @@
 use myksr;
 
 -- Insert information to rater table
-insert into rater (id, name, gender, username, email, password) values (1, 'Victor', 'M', 'vchoisk', 'v@gmail.com', 'sab');
-insert into rater (id, name, gender, username, email, password) values (2, 'Chris', 'M', 'potato', 'c@gmail.com', 'sab');
-insert into rater (id, name, gender, username, email, password) values (3, 'Joanne', 'F', 'jiejie', 'j@gmail.com', 'sab');
-insert into rater (id, name, gender, username, email, password) values (4, 'Nikki', 'F', 'nikkiG', 'n@gmail.com', 'sab');
+insert into rater (id, firstname, lastname, gender, username, email, password) values (1, 'Victor', 'M', 'vchoisk', 'v@gmail.com', 'sab');
+insert into rater (id, firstname, lastname, gender, username, email, password) values (2, 'Chris', 'M', 'potato', 'c@gmail.com', 'sab');
+insert into rater (id, firstname, lastname, gender, username, email, password) values (3, 'Joanne', 'F', 'jiejie', 'j@gmail.com', 'sab');
+insert into rater (id, firstname, lastname, gender, username, email, password) values (4, 'Nikki', 'F', 'nikkiG', 'n@gmail.com', 'sab');
 
 
 
