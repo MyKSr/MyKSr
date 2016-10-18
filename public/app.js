@@ -1,4 +1,4 @@
-const myksr = angular.module('myksr', [ 'myksr.ratings', 'myksr.profile', 'myksr.result', 'myksr.services', 'myksr.users', 'ngRoute' ]);
+const myksr = angular.module('myksr', [ 'myksr.ratings', 'myksr.profile', 'myksr.result', 'myksr.services', 'myksr.users', 'myksr.login', 'myksr.signup', 'ngRoute' ]);
 
 myksr.config(function($routeProvider) {
 
@@ -19,6 +19,14 @@ myksr.config(function($routeProvider) {
     templateUrl: 'result/result.html',
     controller: 'ResultCtrl'
   })
+  .when('/login', {
+    templateUrl: 'login/login.html',
+    controller: 'LoginCtrl'
+  })
+  .when('/signup', {
+    templateUrl: 'signup/signup.html',
+    controller: 'signupCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });
@@ -33,4 +41,3 @@ myksr.controller('appCtrl', function($scope, $window){
     $window.location = '#/';
   }
 });
-
