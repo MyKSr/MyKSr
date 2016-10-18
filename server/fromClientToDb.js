@@ -1,32 +1,25 @@
 var db = require('../db/db.js');
 
-
-// $HTTP({
-//   method:
-//   url:fjklsadhf.com,
-//   data:{rater:'Joanne',
-//   rated:'Victor'}
-// })
-
 // Client side must send the url with the correct parameters as /:rater/:rated format
 module.exports.clickPhotoRequestHandler = function(req, res){
   var rater = req.params.rater;
   var rated = req.params.rated;
-  var queryString = `SELECT rating, userIdRater, userIdRated
+  var queryString = `SELECT rating, raterId, ratedId
                      FROM ratings 
-                     INNER JOIN rater on rater.id = ratings.raterId
-                     INNER JOIN rated on rated.id = ratings.ratedId
-                     WHERE rater.name='${rater}' AND 
-                     WHERE rated.name='${rated}';
-                    `
+                     INNER JOIN rater on ratings.raterId = rater.id 
+                     INNER JOIN rated on ratings.ratedId = rated.id
+                     WHERE rater.name='${rater}' ;`;
+                    //  AND 
+                    //  WHERE rated.name='${rated}';
+                    // `
   db.query(queryString, function(err, rows) {
     if (err) {
       console.error(err);
     }
-    res.send(rows);
+    // res.send(rows); 
     console.log(rows);
+    res.send('success');
   })
-  res.send('success');
 }
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
