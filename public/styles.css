@@ -46,3 +46,9 @@ form input {
   width: 50%;
   font-size: 14px;
 }
+
+.rating {
+  position: absolute;
+  top: 30px;
+  right: 0;
+}

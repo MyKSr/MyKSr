@@ -1,7 +1,7 @@
 angular.module('myksr.ratings', [])
 
 .controller('RatingsCtrl', function($scope, $http, $window) {
-
+  // On click we want to render the result of rating that person INCLUDING their new average rating
   $scope.submit = function() {
   	$http({
   		method: 'POST',
