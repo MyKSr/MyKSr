@@ -21,6 +21,7 @@ app.get('/:rater/:rated', clientToDB.clickPhotoRequestHandler);
 
 app.post('/postrating', clientToDB.postRatingToDB);
 
+app.post('/postSignup', clientToDB.postSignupToDB);
 //start server
 app.listen(port, () => {
   console.log('Listening on...', port);
