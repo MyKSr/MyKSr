@@ -8,8 +8,8 @@ module.exports.clickPhotoRequestHandler = function(req, res){
                      FROM ratings
                      INNER JOIN rater on ratings.raterId = rater.id
                      INNER JOIN rated on ratings.ratedId = rated.id
-                     WHERE rater.name='${rater}' AND
-                     WHERE rated.name='${rated}';
+                     WHERE rater.name='${rater}' AND 
+                     rated.name='${rated}';
                     `;
   db.query(queryString, function(err, rows) {
     if (err) {
