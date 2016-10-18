@@ -1,0 +1,42 @@
+<form ng-controller="signupCtrl">
+  <h1>SIGNUP</h1>
+  <div class="form-row">
+    <div class="form-row-inner-partial left">
+      <label for="First">First Name</label>
+      <input ng-model="first">
+    </div>
+    <div class="form-row-inner-partial right">
+      <label for="Last">Last Name</label>
+      <input ng-model="last">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-inner-full">
+      <label for="username">Username</label>
+      <input ng-model="username">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-inner-full">
+      <label for="Email">Email Address</label>
+      <input ng-model="email">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-inner-full">
+      <label for="pwd">New Password</label>
+      <input ng-model="pwd">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-row-inner-full">
+      <label for="cfmPwd">Confirm Password</label>
+      <input ng-model="cfmPwd">
+    </div>
+  </div>
+  <button type="submit" name="submit">Submit</button>
+</form>
