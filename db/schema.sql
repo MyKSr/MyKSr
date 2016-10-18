@@ -7,7 +7,8 @@ use myksr;
 all other information that has been filled in by themselves (on login)*/
 CREATE TABLE rater (
   raterId int NOT NULL AUTO_INCREMENT,
-  name varchar(20),
+  firstname varchar(20),
+  lastname varchar(20),
   gender varchar(1),
   username varchar(20),
   email varchar(100),

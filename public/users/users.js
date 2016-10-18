@@ -1,6 +1,6 @@
 angular.module('myksr.users', [])
 
-.controller('UsersCtrl', function($scope, $window) {
+.controller('UsersCtrl', function($scope, $window, $http) {
   console.log('INSIDE USERS');
 
   $scope.rate = function() {
