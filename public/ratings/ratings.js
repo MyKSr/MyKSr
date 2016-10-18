@@ -6,7 +6,10 @@ angular.module('myksr.ratings', [])
   	$http({
   		method: 'POST',
   		url: '/postrating',
-      data: {rate: $scope.rate}
+      data: {rate: $scope.rate,
+             rater: 'Victor',
+             rated: 'Victor'
+      }
   	}).then(function(res) {
       $window.location = '#/result';
       console.log('CLIENT POST RES ',res);
