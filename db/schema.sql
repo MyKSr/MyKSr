@@ -9,6 +9,9 @@ CREATE TABLE rater (
   raterId int NOT NULL AUTO_INCREMENT,
   name varchar(20),
   gender varchar(1),
+  username varchar(20),
+  email varchar(100),
+  password varchar(100),
   PRIMARY KEY(raterId)
 );
 
