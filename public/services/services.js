@@ -5,7 +5,7 @@ angular.module('myksr.services', [])
 })
 .factory('signupFactory', function($http) {
   return {
-    postSignup = function(firstname, lastname, gender, username, email, password) {
+    postSignup: function(firstname, lastname, gender, username, email, password) {
       return $http({
         method: 'POST',
         url: '/postSignup',
