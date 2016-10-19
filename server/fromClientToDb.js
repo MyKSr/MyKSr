@@ -29,6 +29,7 @@ module.exports.postRatingToDB = (req, res) => {
   db.query(queryString, (err, rows) => {
     if (err) {
       console.log('DID NOT POST TO DB', err);
+      throw err;
     }
     console.log('POSTED TO DB');
     console.log(rows);
@@ -57,5 +58,16 @@ module.exports.postSignupToDB = (req, res) => {
 }
 
 module.exports.fetchAllFriends = (req, res) => {
-
+  // later add where group = current user's group, this means that 
+  // we have to get the group information to the server
+  var queryString = `SELECT * 
+                     FROM rated;
+                    `
+  db.query(queryString, (err, rows) => {
+    if (err) {
+      console.log('Failed to fetch all friend list from DB');
+      throw err;
+    }
+    res.send(200, rows);
+  });
 }
