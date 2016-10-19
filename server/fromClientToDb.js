@@ -55,3 +55,7 @@ module.exports.postSignupToDB = (req, res) => {
     res.send(200, 'Successfully posted the user data');
   });
 }
+
+module.exports.fetchAllFriends = (req, res) => {
+
+}

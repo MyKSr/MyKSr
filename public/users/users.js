@@ -8,9 +8,10 @@ angular.module('myksr.users', [])
   // have it rendered on html using ng repeat
   $scope.groupFriends = [];
   $scope.fetchGroupMembers =  function() {
-    $http.get('/').then(function (response) { 
+    $http.get('/allFriends').then(function (response) { 
+      //expect to get an array of data
       $scope.groupFriends = response;
-    }, function (erro) {
+    }, function (error) {
       console.log('Only friend in our db in the same group as you is the owl.');
       $scope.groupFriends = ['owl'];
     });
