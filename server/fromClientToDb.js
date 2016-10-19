@@ -18,8 +18,8 @@ module.exports.clickPhotoRequestHandler = function(req, res){
     console.log(rows);
     res.send('success');
   })
-
 }
+
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
   var queryString = `INSERT INTO ratings
@@ -35,6 +35,7 @@ module.exports.postRatingToDB = (req, res) => {
     res.send(200, 'Successfully posted the user data');
   });
 }
+
 module.exports.postSignupToDB = (req, res) => {
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;

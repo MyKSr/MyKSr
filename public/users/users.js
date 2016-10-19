@@ -6,4 +6,8 @@ angular.module('myksr.users', [])
   $scope.rate = function() {
     $window.location = '#/ratings';
   }
+
+  $scope.clickFriend = function() {
+  	$http.get();
+  }
 });
