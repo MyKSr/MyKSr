@@ -5,15 +5,24 @@ angular.module('myksr.users', [])
 
   // eventually Fetch the users who are in the same group as the rater,
   // for now, fetch all users, then save it as a scope variable
-  // 
-  
+  // have it rendered on html using ng repeat
+  $scope.groupFriends = [];
+  $scope.fetchGroupMembers =  function() {
+    $http.get('/').then(function (response) { 
+      $scope.groupFriends = response;
+    }, function (erro) {
+      console.log('Only friend in our db in the same group as you is the owl.');
+      $scope.groupFriends = ['owl'];
+    });
+  }
+
   $scope.rate = function() {
     $window.location = '#/ratings';
   }
 
   $scope.clickFriend = function(rater, rated) {
   	var urlString = `/${rater}/${rated}`;
-  	$http.get(urlString).then(function (resonse) {
+  	$http.get(urlString).then(function (response) {
   	// If !(response), redirect them to rating page
 
   	//else direct them to the friend's info page
