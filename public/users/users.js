@@ -10,26 +10,32 @@ angular.module('myksr.users', [])
   $scope.fetchGroupMembers =  function() {
     $http.get('/allFriends').then(function (response) { 
       //expect to get an array of data
-      $scope.groupFriends = response;
+      console.log(response);
+      console.log('Successfully fetched all users from server');
+      $scope.groupFriends = response.data;
     }, function (error) {
       console.log('Only friend in our db in the same group as you is the owl.');
+      console.log('Actually I failed to fetch data...');
       $scope.groupFriends = ['owl'];
     });
   }
-
   $scope.rate = function() {
     $window.location = '#/ratings';
   }
 
   $scope.clickFriend = function(rater, rated) {
-  	var urlString = `/${rater}/${rated}`;
-  	$http.get(urlString).then(function (response) {
-  	// If !(response), redirect them to rating page
+    var urlString = `/${rater}/${rated}`;
+    $http.get(urlString).then(function (response) {
+    // If !(response), redirect them to rating page
+    
+    //else direct them to the friend's info page
 
-  	//else direct them to the friend's info page
+    }, function (error) {
 
-  	}, function (error) {
-
-  	});
+    });
   }
+  var init = function () {
+    $scope.fetchGroupMembers();
+  };
+  init();
 });

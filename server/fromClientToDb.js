@@ -58,16 +58,18 @@ module.exports.postSignupToDB = (req, res) => {
 }
 
 module.exports.fetchAllFriends = (req, res) => {
+  console.log('This is being being invoked');
   // later add where group = current user's group, this means that 
   // we have to get the group information to the server
   var queryString = `SELECT * 
                      FROM rated;
-                    `
+                    `;
   db.query(queryString, (err, rows) => {
     if (err) {
       console.log('Failed to fetch all friend list from DB');
       throw err;
     }
+    console.log('Successfully fetched all users from db');
     res.send(200, rows);
   });
 }
