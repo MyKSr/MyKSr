@@ -17,3 +17,10 @@ angular.module('myksr.services', [])
     }
   }
 })
+.factory('information', function() {
+  return {
+    currentUser: 'Victor',
+    clickedUser: 'Victor',
+    clickedUserRating: 0 
+  }
+})

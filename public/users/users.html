@@ -1,5 +1,5 @@
 <div ng-controller="UsersCtrl">
 	<h1>Users</h1>
 <!-- 	want to change to click friend, once the function is implemented -->
-  <div ng-click="rate()" ng-repeat='friend in groupFriends'>{{friend.name}}</div>
+  <div ng-repeat='friend in groupFriends' ng-click="clickFriend(currentUser, friend.name)" >{{friend.name}}</div>
 </div>

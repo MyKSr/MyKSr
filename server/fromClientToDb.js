@@ -4,28 +4,32 @@ var db = require('../db/db.js');
 module.exports.clickPhotoRequestHandler = function(req, res){
   var rater = req.params.rater;
   var rated = req.params.rated;
-  var queryString = `SELECT rating, raterId, ratedId
+  console.log('This is the rater and rated in server: ', rater, rated);
+  var queryString = `SELECT rating
                      FROM ratings
-                     INNER JOIN rater on ratings.raterId = rater.id
-                     INNER JOIN rated on ratings.ratedId = rated.id
-                     WHERE rater.name='${rater}' AND
+                     INNER JOIN rater on ratings.raterId = rater.raterId
+                     INNER JOIN rated on ratings.ratedId = rated.ratedId
+                     WHERE rater.firstname='${rater}' AND
                      rated.name='${rated}';
                     `;
   db.query(queryString, function(err, rows) {
     if (err) {
-      console.error(err);
+      console.error('We got an error from attempt to fetch rating information', err);
+      throw err;
     }
-    console.log(rows);
-    res.send('success');
+    console.log('This is what we get from friend click: ', rows);
+    res.send(200, rows);
   })
 }
 
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
   var queryString = `INSERT INTO ratings
-                     (id, rating, userIdRated, userIdRater) VALUES
-                     (null, ${req.body.rate}, ${req.body.rated}, ${req.body.rater});
-                     `;
+                     (id, rating, raterId, ratedId) VALUES
+                     (null, '${req.body.rate}',
+                     (SELECT raterId FROM rater WHERE firstname = '${req.body.rater}'),
+                     (SELECT ratedId FROM rated WHERE name = '${req.body.rated}')
+                     );`;
   db.query(queryString, (err, rows) => {
     if (err) {
       console.log('DID NOT POST TO DB', err);

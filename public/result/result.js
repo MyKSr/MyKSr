@@ -1,7 +1,8 @@
 angular.module('myksr.result', ['myksr.services'])
 
-.controller('ResultCtrl', function($scope, factory) {
-  console.log('INSIDE RESULTS ', factory);
+.controller('ResultCtrl', function($scope, information) {
+  console.log('INSIDE RESULTS ', information.clickedUser);
 
-  $scope.result = factory;
+  $scope.ratedUser = information.clickedUser;
+  $scope.clickedUserRating = information.clickedUserRating;
 });
