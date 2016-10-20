@@ -28,11 +28,11 @@ angular.module('myksr.users', [])
     information.clickedUser = rated;
     var urlString = `/${rater}/${rated}`;
     $http.get(urlString).then(function (response) {
-      // If !(response), redirect them to rating page
       if (!response.data[0]){
-      //else direct them to the friend's info page
+      // If !(response), redirect them to rating page
         $window.location = '#/ratings';
       }else {
+      //else direct them to the friend's info page
         console.log('this is the result: ',response);
         information.clickedUserRating = response.data[0].rating;
         console.log('We are getting sth from server');
