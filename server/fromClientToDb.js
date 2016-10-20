@@ -44,7 +44,7 @@ module.exports.postSignupToDB = (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
   console.log('post req body', firstname, lastname, username, email, password);
-  var queryString = `INSERT INTO users
+  var queryString = `INSERT INTO rater
                      (id, firstname, lastname, username, email, password) VALUES
                      (null, '${firstname}', '${lastname}', '${username}', '${email}', '${password}');
                     `;
@@ -59,9 +59,9 @@ module.exports.postSignupToDB = (req, res) => {
 
 module.exports.fetchAllFriends = (req, res) => {
   console.log('This is being being invoked');
-  // later add where group = current user's group, this means that 
+  // later add where group = current user's group, this means that
   // we have to get the group information to the server
-  var queryString = `SELECT * 
+  var queryString = `SELECT *
                      FROM rated;
                     `;
   db.query(queryString, (err, rows) => {
