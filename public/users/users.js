@@ -1,8 +1,8 @@
 angular.module('myksr.users', [])
 
-.controller('UsersCtrl', function($scope, $window, $http) {
-  console.log('INSIDE USERS');
-
+.controller('UsersCtrl', function($scope, $window, $http, information) {
+  console.log('Current User: ', information.currentUser);
+  $scope.currentUser = information.currentUser;
   // eventually Fetch the users who are in the same group as the rater,
   // for now, fetch all users, then save it as a scope variable
   // have it rendered on html using ng repeat
@@ -24,11 +24,20 @@ angular.module('myksr.users', [])
   }
 
   $scope.clickFriend = function(rater, rated) {
+    console.log(rater, rated);
+    information.clickedUser = rated;
     var urlString = `/${rater}/${rated}`;
     $http.get(urlString).then(function (response) {
-    // If !(response), redirect them to rating page
-    
-    //else direct them to the friend's info page
+      // If !(response), redirect them to rating page
+      if (!response.data[0]){
+      //else direct them to the friend's info page
+        $window.location = '#/ratings';
+      }else {
+        console.log('this is the result: ',response);
+        information.clickedUserRating = response.data[0].rating;
+        console.log('We are getting sth from server');
+        $window.location = '#/result';
+      }
 
     }, function (error) {
 
