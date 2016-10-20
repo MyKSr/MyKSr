@@ -16,12 +16,16 @@ app.use(bodyParser.urlencoded({extended : false}));
 app.use(express.static(`${__dirname}/../public`));
 app.use(express.static(`${__dirname}/../node_modules`));
 
-//get and post requests goes here
+// Get and post requests goes here
+// User signsup
+app.post('/postSignup', clientToDB.postSignupToDB);
+// User is logs in to see friend's photos
+app.get('/allFriends', clientToDB.fetchAllFriends);
+// User clicks friend's photo to rate, or see their current rating
 app.get('/:rater/:rated', clientToDB.clickPhotoRequestHandler);
-
+// User submits their completed post of rating friend
 app.post('/postrating', clientToDB.postRatingToDB);
 
-app.post('/postSignup', clientToDB.postSignupToDB);
 //start server
 app.listen(port, () => {
   console.log('Listening on...', port);

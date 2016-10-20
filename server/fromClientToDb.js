@@ -19,6 +19,7 @@ module.exports.clickPhotoRequestHandler = function(req, res){
     res.send('success');
   })
 }
+
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
   var queryString = `INSERT INTO ratings
@@ -28,12 +29,14 @@ module.exports.postRatingToDB = (req, res) => {
   db.query(queryString, (err, rows) => {
     if (err) {
       console.log('DID NOT POST TO DB', err);
+      throw err;
     }
     console.log('POSTED TO DB');
     console.log(rows);
     res.send(200, 'Successfully posted the user data');
   });
 }
+
 module.exports.postSignupToDB = (req, res) => {
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;
@@ -51,5 +54,22 @@ module.exports.postSignupToDB = (req, res) => {
       throw err;
     }
     res.send(200, 'Successfully posted the user data');
+  });
+}
+
+module.exports.fetchAllFriends = (req, res) => {
+  console.log('This is being being invoked');
+  // later add where group = current user's group, this means that 
+  // we have to get the group information to the server
+  var queryString = `SELECT * 
+                     FROM rated;
+                    `;
+  db.query(queryString, (err, rows) => {
+    if (err) {
+      console.log('Failed to fetch all friend list from DB');
+      throw err;
+    }
+    console.log('Successfully fetched all users from db');
+    res.send(200, rows);
   });
 }
