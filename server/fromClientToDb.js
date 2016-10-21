@@ -5,7 +5,7 @@ module.exports.clickPhotoRequestHandler = function(req, res){
   var rater = req.params.rater;
   var rated = req.params.rated;
   console.log('This is the rater and rated in server: ', rater, rated);
-  var queryString = `SELECT rating
+  var queryString = `SELECT rating, comment
                      FROM ratings
                      INNER JOIN rater on ratings.raterId = rater.raterId
                      INNER JOIN rated on ratings.ratedId = rated.ratedId
