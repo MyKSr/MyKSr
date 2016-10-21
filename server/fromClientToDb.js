@@ -25,10 +25,11 @@ module.exports.clickPhotoRequestHandler = function(req, res){
 module.exports.postRatingToDB = (req, res) => {
   console.log('POST REQ BODY ',req.body.rate);
   var queryString = `INSERT INTO ratings
-                     (id, rating, raterId, ratedId) VALUES
+                     (id, rating, raterId, ratedId, comment) VALUES
                      (null, '${req.body.rate}',
                      (SELECT raterId FROM rater WHERE firstname = '${req.body.rater}'),
-                     (SELECT ratedId FROM rated WHERE name = '${req.body.rated}')
+                     (SELECT ratedId FROM rated WHERE name = '${req.body.rated}'),
+                     '${req.body.comment}'
                      );`;
   db.query(queryString, (err, rows) => {
     if (err) {

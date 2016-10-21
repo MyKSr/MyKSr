@@ -29,6 +29,7 @@ CREATE TABLE ratings (
   rating int NOT NULL,
   raterId int NOT NULL,
   ratedId int NOT NULL,
+  comment varchar(256),
   PRIMARY KEY(id),
   FOREIGN KEY (raterId)
     REFERENCES rater(raterId)
