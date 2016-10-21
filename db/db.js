@@ -5,7 +5,8 @@ const db = mysql.createConnection({
   socketPath: "/var/run/mysqld/mysqld.sock",
   user: "root",
   password: "",
-  database: "myksr"
+  database: "myksr",
+  insecureAuth: "true"
 });
 
 db.connect((err) => {
