@@ -23,6 +23,10 @@ myksr.config(function($routeProvider) {
     templateUrl: 'signup/signup.html',
     controller: 'signupCtrl'
   })
+  .when('/signin', {
+    templateUrl: 'signin/signin.html',
+    controller: 'signinCtrl'
+  })
   .otherwise({
     redirectTo: '/'
   });
