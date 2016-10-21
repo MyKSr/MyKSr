@@ -1,20 +1,20 @@
-<form ng-controller="signupCtrl">
+<form ng-controller="signupCtrl" ng-submit="submitSignup">
   <h1>SIGNUP</h1>
   <div class="form-row">
     <div class="form-row-inner-partial left">
       <label for="First">First Name</label>
-      <input ng-model="first">
+      <input ng-model="firstname">
     </div>
     <div class="form-row-inner-partial right">
       <label for="Last">Last Name</label>
-      <input ng-model="last">
+      <input ng-model="lastname">
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-row-inner-full">
       <label for="gender">Gender</label>
-      <input ng-model="gender">
+      <input type=button ng-model="gender">
     </div>
   </div>
 
