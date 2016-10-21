@@ -5,4 +5,5 @@ angular.module('myksr.result', ['myksr.services'])
 
   $scope.ratedUser = information.clickedUser;
   $scope.clickedUserRating = information.clickedUserRating;
+  $scope.clickedUserComment = information.clickedUserComment;
 });
