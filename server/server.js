@@ -21,10 +21,12 @@ app.use(express.static(`${__dirname}/../node_modules`));
 app.post('/signup', clientToDB.postSignupToDB);
 // User is logs in to see friend's photos
 app.get('/allFriends', clientToDB.fetchAllFriends);
-// User clicks friend's photo to rate, or see their current rating
-app.get('/:rater/:rated', clientToDB.clickPhotoRequestHandler);
 // User submits their completed post of rating friend
 app.post('/postrating', clientToDB.postRatingToDB);
+// User signed up already
+app.get('/checkUser/:user', clientToDB.work);
+// User clicks friend's photo to rate, or see their current rating
+app.get('/:rater/:rated', clientToDB.clickPhotoRequestHandler);
 
 //start server
 app.listen(port, () => {

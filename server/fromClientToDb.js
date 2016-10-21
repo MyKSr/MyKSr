@@ -46,12 +46,13 @@ module.exports.postSignupToDB = (req, res) => {
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;
   var username = req.body.username;
+  var gender = req.body.gender;
   var email = req.body.email;
   var password = req.body.password;
   console.log('post req body', firstname, lastname, username, email, password);
   var queryString = `INSERT INTO rater
-                     (id, firstname, lastname, username, email, password) VALUES
-                     (null, '${firstname}', '${lastname}', '${username}', '${email}', '${password}');
+                     (raterId, firstname, lastname, gender, username, email, password) VALUES
+                     (null, '${firstname}', '${lastname}', '${gender}', '${username}', '${email}', '${password}');
                     `;
   db.query(queryString, function(err, rows) {
     if (err) {
@@ -75,6 +76,24 @@ module.exports.fetchAllFriends = (req, res) => {
       throw err;
     }
     console.log('Successfully fetched all users from db');
+    res.send(200, rows);
+  });
+}
+
+module.exports.work = (req, res) => {
+  var user = req.params.user;
+  console.log('801th');
+  console.log('USER: ', user);
+  var queryString = `SELECT firstname
+                     FROM rater
+                     WHERE firstname = '${user}'
+                     `;
+  db.query(queryString, (err, rows) => {
+    console.log('USER DATA: ',rows);
+    if (err) {
+      console.log('Cannot get user');
+      throw err;
+    }
     res.send(200, rows);
   });
 }
