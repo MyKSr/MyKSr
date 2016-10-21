@@ -2,7 +2,7 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-  host: "localhost",
+  socketPath: "/var/run/mysqld/mysqld.sock",
   user: "root",
   password: "",
   database: "myksr"
