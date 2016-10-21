@@ -61,5 +61,19 @@ form input {
 .img-circle {
   border-radius: 50%;
   width: 150px;
+  height: 150px;
 }
 
+.showpic {
+  display: inline;
+  margin: 20px;
+}
+
+.friend-pic {
+  width: 220px;
+  height: 220px;
+}
+
+.content-display {
+  background-color: rgb(255,227,193);
+}

@@ -8,7 +8,7 @@ angular.module('myksr.users', [])
   // have it rendered on html using ng repeat
   $scope.groupFriends = [];
   $scope.fetchGroupMembers =  function() {
-    $http.get('/allFriends').then(function (response) { 
+    $http.get('/allFriends').then(function (response) {
       //expect to get an array of data
       console.log(response);
       console.log('Successfully fetched all users from server');
@@ -35,6 +35,7 @@ angular.module('myksr.users', [])
       //else direct them to the friend's info page
         console.log('this is the result: ',response);
         information.clickedUserRating = response.data[0].rating;
+        information.clickedUserComment = response.data[0].comment;
         console.log('We are getting sth from server');
         $window.location = '#/result';
       }

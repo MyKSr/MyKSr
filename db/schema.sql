@@ -20,6 +20,7 @@ CREATE TABLE rated (
   ratedId int NOT NULL AUTO_INCREMENT,
   name varchar(20),
   gender varchar(1),
+  pic varchar(50),
   PRIMARY KEY(ratedId)
 );
 
