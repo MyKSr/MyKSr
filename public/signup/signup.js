@@ -1,6 +1,6 @@
 angular.module('myksr.signup', [])
 
-.controller('signupCtrl', function ($scope, $http, $window) {
+.controller('signupCtrl', function ($scope, $http, $window, information) {
 	$scope.submitSignup = function (){
 		var signupUserInfo = {
 			firstname : $scope.firstname,
@@ -26,6 +26,7 @@ angular.module('myksr.signup', [])
 		  	if(!res.data[0]){
 		  		$http.post('/signup', signupUserInfo).then(function () {
 		  			console.log('user successfully signed up');
+	          information.currentUser = $scope.firstname;
 	          $window.location = '#/users';
 		  		});
 		  	}
