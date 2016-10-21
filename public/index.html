@@ -9,19 +9,19 @@
   <title>| Myksr</title>
 </head>
 <body class="container-fluid">
+  <div class="header">
+    <h1>Welcome to Myksr!</h1>
+    <h2>Stay inside your circle with Myksr</h2>
+  </div>
   <div class="navbar navbar-default navbar-fixed-top" ng-controller="appCtrl">
     <div class="container">
       <span><img class="homeButton" src="https://s-media-cache-ak0.pinimg.com/originals/77/fb/b0/77fbb039010fc805e96336a62b0cccc5.png" ng-click="home()"></span>
       <a class="navbar-toggle" href="#/signup"><button>Signup</button></a>
       <a class="navbar-toggle" href="#/signin"><button>Signin</button></a>
-      <a class="navbar-toggle" href="#" onclick="signOut()"><button class="">Sign out</button></a>
+      <a class="navbar-toggle" href="#" onclick="signOut()"><button>Sign out</button></a>
       <button class="navbar-toggle" ng-click="redirect()">Go to my profile</button>
     </div>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
-  </div>
-  <div class="header">
-    <h1>Welcome to Myksr!</h1>
-    <h2>Stay inside your circle with Myksr</h2>
   </div>
   <div class="content-display" ng-view></div>
   <script src="angular/angular.js"></script>

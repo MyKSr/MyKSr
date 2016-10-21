@@ -2,13 +2,18 @@
   width:60px;
   height: auto;
   left: 15px;
+  position: absolute;
 }
 
 body {
   text-align: center;
   font-family: fantasy;
+  color: white;
 }
 
+.content-display {
+  background-image: url('./assets/background/background2.jpg');
+}
 .form {
   max-width: 600px;
   padding: 20px;
@@ -60,6 +65,12 @@ form input {
   height: 150px;
 }
 
+.img-circle:hover {
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+}
+
 .showpic {
   display: inline;
   margin: 20px;
@@ -70,17 +81,22 @@ form input {
   height: 220px;
 }
 
-.content-display {
-  background-color: rgb(255,227,193);
-}
-
 .navbar {
   position: fixed;
-  background-color: rgb(255,255,153);
+  background-color: skyblue;
   width:100vw;
+  top: 0px;
+  opacity: 0.7;
 }
 
 .header {
-  height: 30vh;
+  height: 45vh;
   padding-top: 150px;
+  background-image:
+  linear-gradient(
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0.5)
+    ), url('./assets/background/background.png');
+  background-position: top;
+  opacity: 0.7;
 }
