@@ -50,7 +50,7 @@ myksr.controller('appCtrl', function($scope, $window, information, $http){
   $window.onSignIn = function(googleUser) {
     var profile = googleUser.getBasicProfile();
     information.currentUser = profile.getGivenName();
-    console.log('/checkUser/'+profile.getGivenName());
+    information.image = profile.getImageUrl();
      $http.get('/checkUser/'+profile.getGivenName()).then(function(res){
         console.log('SIGNED IN USER', res.data);
         if(!res.data[0]){
