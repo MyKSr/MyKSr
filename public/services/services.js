@@ -1,15 +1,12 @@
 angular.module('myksr.services', [])
 
-.factory('factory', function(){
-  return 'please work';
-})
-.factory('signupFactory', function($http) {
+.factory('postToDBFactory', function($http) {
   return {
-    postSignup: function(firstname, lastname, gender, username, email, password) {
+    postSignup: function(firstname, lastname, pic, email) {
       return $http({
         method: 'POST',
-        url: '/postSignup',
-        data: {firstname: firstname, lastname: lastname, gender: gender, username: username, email: email, password: password}
+        url: '/signup',
+        data: {firstname: firstname, lastname: lastname, pic: pic, email: email}
       })
       .then(function(resp) {
         return resp.data;
@@ -19,8 +16,8 @@ angular.module('myksr.services', [])
 })
 .factory('information', function() {
   return {
-    currentUser: 'Victor',
-    clickedUser: 'Victor',
-    clickedUserRating: 0 
+    currentUser: '',
+    clickedUser: '',
+    clickedUserRating: 0
   }
 })

@@ -17,8 +17,8 @@ app.use(express.static(`${__dirname}/../public`));
 app.use(express.static(`${__dirname}/../node_modules`));
 
 // Get and post requests goes here
-// User signsup
-app.post('/postSignup', clientToDB.postSignupToDB);
+// User signs up
+app.post('/signup', clientToDB.postSignupToDB);
 // User is logs in to see friend's photos
 app.get('/allFriends', clientToDB.fetchAllFriends);
 // User clicks friend's photo to rate, or see their current rating

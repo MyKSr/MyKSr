@@ -42,6 +42,7 @@ module.exports.postRatingToDB = (req, res) => {
 }
 
 module.exports.postSignupToDB = (req, res) => {
+  console.log('postSignupToDB is being invoked');
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;
   var username = req.body.username;
@@ -62,7 +63,7 @@ module.exports.postSignupToDB = (req, res) => {
 }
 
 module.exports.fetchAllFriends = (req, res) => {
-  console.log('This is being being invoked');
+  console.log('fetchAllFriends is being invoked');
   // later add where group = current user's group, this means that
   // we have to get the group information to the server
   var queryString = `SELECT *
