@@ -1,8 +1,12 @@
 <div ng-controller="RatingsCtrl">
   <h1>Ratings</h1>
-  <form ng-submit="submit()">
-  	<input ng-model="rate" placeholder="Enter rating"/>
+  <form name="ratingsForm" ng-submit="submit()">
+  	<input type="number" ng-model="rate" name="rating" placeholder="Enter rating" ng-maxlength="1" ng-max="5" ng-min="1" required>
   	<input type="submit" id="submit" value="Submit">
+    <p ng-show="ratingsForm.rating.$error.number">Rating must be a number</p>
+    <p ng-show="ratingsForm.rating.$error.max">Rating must be 5 or less</p>
+    <p ng-show="ratingsForm.rating.$error.min">Rating must be 1 or higher</p>
+    <p ng-show="ratingsForm.rating.$error.maxlength">Rating must be 1 digit</p>
   </form>
 </div>
 
