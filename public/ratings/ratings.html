@@ -1,5 +1,4 @@
 <div ng-controller="RatingsCtrl">
-  <h1>Ratings</h1>
   <form name="ratingsForm" ng-submit="submit()" id="ratingsForm">
   	<input type="number" ng-model="rate" name="rating" placeholder="Enter rating" ng-maxlength="1" ng-max="5" ng-min="1" required>
     <textarea ng-model="comment" name="comment" ng-maxlength="255" placeholder="Leave a comment here" style="position: absolute;"></textarea>

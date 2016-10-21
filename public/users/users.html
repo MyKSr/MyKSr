@@ -1,5 +1,4 @@
 <div ng-controller="UsersCtrl">
-	<h1>Users</h1>
 <!-- 	want to change to click friend, once the function is implemented -->
   <div class="showpic" ng-repeat='friend in groupFriends' ng-click="clickFriend(currentUser, friend.name)">
 		<img class="img-circle friend-pic"ng-src="{{friend.pic}}" />
