@@ -1,16 +1,12 @@
 .homeButton {
   width:60px;
   height: auto;
+  left: 15px;
 }
 
-.main {
+body {
   text-align: center;
-}
-
-.profile {
-  position: absolute;
-  top: 0;
-  right: 0;
+  font-family: fantasy;
 }
 
 .form {
@@ -76,4 +72,15 @@ form input {
 
 .content-display {
   background-color: rgb(255,227,193);
+}
+
+.navbar {
+  position: fixed;
+  background-color: rgb(255,255,153);
+  width:100vw;
+}
+
+.header {
+  height: 30vh;
+  padding-top: 150px;
 }
