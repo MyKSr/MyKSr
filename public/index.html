@@ -9,7 +9,7 @@
 <body>
   <div class="navbar" ng-controller="appCtrl">
     <span>
-    <img src="https://s-media-cache-ak0.pinimg.com/originals/77/fb/b0/77fbb039010fc805e96336a62b0cccc5.png" ng-click="home()">
+    <img class="homeButton" src="https://s-media-cache-ak0.pinimg.com/originals/77/fb/b0/77fbb039010fc805e96336a62b0cccc5.png" ng-click="home()">
     </span>
     <span>
       <button class="profile" ng-click="redirect()">Go to my profile</button>
@@ -18,7 +18,6 @@
   <div class="main">
     <h1>Welcome to Myksr!</h1>
     <h2>Stay inside your circle with Myksr</h2>
-    <p>Give your friends feedback</p>
     <a href="#/signup"><button>Signup</button></a>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <a href="#" onclick="signOut()"><button class="abcRioButton abcRioButtonLightBlue">Sign out</button></a>
