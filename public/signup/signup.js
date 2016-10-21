@@ -21,7 +21,8 @@ angular.module('myksr.signup', [])
 		}else if ($scope.pwd !== $scope.cfmPwd) {
       alert('Your confirm password does not match your desired password');
 		}else {
-		  $http.get('/checkUser/'+$scope.first).then(function (res) {
+		  $http.get('/checkUser/'+$scope.firstname).then(function (res) {
+		  	console.log('This is what we get back', res.data);
 		  	if(!res.data[0]){
 		  		$http.post('/signup', signupUserInfo).then(function () {
 		  			console.log('user successfully signed up');

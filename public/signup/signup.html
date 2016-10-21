@@ -1,4 +1,4 @@
-<form ng-controller="signupCtrl" ng-submit="submitSignup">
+<form ng-controller="signupCtrl" ng-submit="submitSignup()">
   <h1>SIGNUP</h1>
   <div class="form-row">
     <div class="form-row-inner-partial left">
@@ -14,7 +14,7 @@
   <div class="form-row">
     <div class="form-row-inner-full">
       <label for="gender">Gender</label>
-      <input type=button ng-model="gender">
+      <input ng-model="gender">
     </div>
   </div>
 
