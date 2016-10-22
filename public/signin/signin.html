@@ -1,8 +1,9 @@
 <form ng-controller="signinCtrl" ng-submit="submitSignin()">
-  <div class="form-row-inner-partial left">
+
+  <div class="form-group">
     <label for="First">First Name</label>
-    <input ng-model="firstname">
+    <input type="firstname" class="form-control" id="firstname" placeholder="First Name" ng-model="firstname">
   </div>
 
-  <button type="submit" name="submit">Submit</button>
+  <button class="btn btn-primary" type="submit" name="submit">Submit</button>
 </form>

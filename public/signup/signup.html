@@ -1,48 +1,55 @@
 <form ng-controller="signupCtrl" ng-submit="submitSignup()">
-  <div class="form-row">
-    <div class="form-row-inner-partial left">
-      <label for="First">First Name</label>
-      <input ng-model="firstname">
-    </div>
-    <div class="form-row-inner-partial right">
-      <label for="Last">Last Name</label>
-      <input ng-model="lastname">
-    </div>
+
+  <div class="form-group">
+    <label for="First">First Name</label>
+    <input type="firstname" class="form-control" id="firstname" placeholder="First Name" ng-model="firstname">
   </div>
 
-  <div class="form-row">
-    <div class="form-row-inner-full">
-      <label for="gender">Gender</label>
-      <input ng-model="gender">
-    </div>
+  <div class="form-group">
+    <label for="Last">Last Name</label>
+    <input type="lastname" class="form-control" id="lastname" placeholder="Last Name" ng-model="lastname">
   </div>
 
-  <div class="form-row">
-    <div class="form-row-inner-full">
-      <label for="username">Username</label>
-      <input ng-model="username">
-    </div>
+  <!-- <div class="form-group">
+    <label for="gender">Gender</label>
+    <input type="gender" class="form-control" id="gender" placeholder="Gender" ng-model="gender">
+  </div> -->
+
+
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="username" class="form-control" id="username" placeholder="Username" ng-model="username">
   </div>
 
-  <div class="form-row">
-    <div class="form-row-inner-full">
-      <label for="Email">Email Address</label>
-      <input ng-model="email">
-    </div>
+  <div class="form-group">
+    <label for="inputEmail">Email address</label>
+    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Enter email" ng-model="email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
 
-  <div class="form-row">
-    <div class="form-row-inner-full">
-      <label for="pwd">New Password</label>
-      <input ng-model="pwd">
-    </div>
+  <div class="form-group">
+    <label for="inputPassword1">Password</label>
+    <input type="password" class="form-control" id="inputPassword1" placeholder="Password" ng-model="password1">
   </div>
 
-  <div class="form-row">
-    <div class="form-row-inner-full">
-      <label for="cfmPwd">Confirm Password</label>
-      <input ng-model="cfmPwd">
-    </div>
+  <div class="form-group">
+    <label for="inputPassword2">Confirm Password</label>
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Password" ng-model="password2">
   </div>
-  <button type="submit" name="submit">Submit</button>
+
+  <label for="gender">Gender</label>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        M
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
+        F
+      </label>
+    </div>
+    <br>
+  <button class="btn btn-primary" type="submit" name="submit">Submit</button>
 </form>
