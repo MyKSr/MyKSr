@@ -92,7 +92,7 @@ module.exports.currentUserInfoInDB = (req, res) => {
       console.log('Cannot get current user information');
       throw err;
     }
-    console.log('Successfully fetched current user information');
+    console.log('Successfully fetched current user information', rows);
     res.send(200, rows);
   });
 }
@@ -110,7 +110,7 @@ module.exports.getAllRatingsOfUser = (req, res) => {
       console.log('Cannot get clicked user ratings');
       throw err;
     }
-    console.log('Successfully fetched clicked user information: ', rows);
+    console.log('Successfully fetched clicked user information: ');
     res.send(200, rows);
   });
 }

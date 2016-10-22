@@ -1,4 +1,8 @@
 <div ng-controller="ProfileCtrl">
-    <img class="img-circle" src="{{img}}"><br>
-    <span class="profName">{{name}}</span><br>
+  <h1>{{firstname}}'s profile</h1>
+  <p>Username : {{username}}</p>
+  <p>Gender : {{gender}}</p>
+  <p>E-mail : {{email}}</p>
+  <p>Average rating : {{averageRating}}</p>
+  <p ng-repeat='comment in allComments track by $index'>{{comment}}</p>
 </div>
