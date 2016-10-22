@@ -2,14 +2,14 @@ var db = require('../db/db.js');
 
 // Client side must send the url with the correct parameters as /:rater/:rated format
 module.exports.clickPhotoRequestHandler = function(req, res){
-  var rater = req.params.rater;
+  var raterUsername = req.params.raterUsername;
   var rated = req.params.rated;
-  console.log('This is the rater and rated in server: ', rater, rated);
+  console.log(raterUsername, rated);
   var queryString = `SELECT rating, comment
                      FROM ratings
                      INNER JOIN rater on ratings.raterId = rater.raterId
                      INNER JOIN rated on ratings.ratedId = rated.ratedId
-                     WHERE rater.firstname='${rater}' AND
+                     WHERE rater.username='${raterUsername}' AND
                      rated.name='${rated}';
                     `;
   db.query(queryString, function(err, rows) {
@@ -27,7 +27,7 @@ module.exports.postRatingToDB = (req, res) => {
   var queryString = `INSERT INTO ratings
                      (id, rating, raterId, ratedId, comment) VALUES
                      (null, '${req.body.rate}',
-                     (SELECT raterId FROM rater WHERE firstname = '${req.body.rater}'),
+                     (SELECT raterId FROM rater WHERE username = '${req.body.raterUsername}'),
                      (SELECT ratedId FROM rated WHERE name = '${req.body.rated}'),
                      '${req.body.comment}'
                      );`;
@@ -81,13 +81,12 @@ module.exports.fetchAllFriends = (req, res) => {
   });
 }
 
-module.exports.work = (req, res) => {
-  var user = req.params.user;
-  console.log('801th');
-  console.log('USER: ', user);
-  var queryString = `SELECT firstname
+module.exports.checkUserInDB = (req, res) => {
+  var username = req.params.username;
+  console.log('USER: ', username);
+  var queryString = `SELECT username
                      FROM rater
-                     WHERE firstname = '${user}'
+                     WHERE username = '${username}'
                      `;
   db.query(queryString, (err, rows) => {
     console.log('USER DATA: ',rows);
