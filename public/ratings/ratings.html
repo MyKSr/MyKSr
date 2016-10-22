@@ -1,40 +1,29 @@
 <div ng-controller="RatingsCtrl">
-  <form name="ratingsForm" ng-submit="submit()" id="ratingsForm">
-
+  <div class="container">
     <div class="form-group">
-      <input type="number" class="form-control" ng-model="activityLevel" name="activityLevel" placeholder="Enter activity level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
-    </div>
+      <form name="ratingsForm" ng-submit="submit()" id="ratingsForm">
+        <input type="number" class="form-control" ng-model="activityLevel" name="activityLevel" placeholder="Enter activity level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
 
-    <div class="form-group">
-      <input type="number" class="form-control" ng-model="spendingLevel" name="spendingLevel" placeholder="Enter spending level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
-    </div>
+        <input type="number" class="form-control" ng-model="spendingLevel" name="spendingLevel" placeholder="Enter spending level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
 
-    <div class="form-group">
-      <input type="number" class="form-control" ng-model="partyingLevel" name="partyingLevel" placeholder="Enter partying level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
-    </div>
+        <input type="number" class="form-control" ng-model="partyingLevel" name="partyingLevel" placeholder="Enter partying level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
 
-    <div class="form-group">
-      <input type="number" class="form-control" ng-model="nerdyLevel" name="nerdyLevel" placeholder="Enter nerdy level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
-    </div>
+        <input type="number" class="form-control" ng-model="nerdyLevel" name="nerdyLevel" placeholder="Enter nerdy level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
 
-    <div class="form-group">
-      <input type="number" class="form-control" ng-model="talkativeLevel" name="talkativeLevel" placeholder="Enter talkative level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
-    </div>
+        <input type="number" class="form-control" ng-model="talkativeLevel" name="talkativeLevel" placeholder="Enter talkative level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
 
-    <div class="form-group">
-      <textarea class="form-control" rows="3" id="textarea" ng-model="comment" name="comment" ng-maxlength="255" placeholder="Leave a comment here"></textarea>
-    </div>
+        <textarea class="form-control" rows="3" id="textarea" ng-model="comment" name="comment" ng-maxlength="255" placeholder="Leave a comment here"></textarea>
 
-    <div class="form-group">
-      <input type="submit" id="submit" value="Submit" class="btn btn-primary">
-    </div>
+        <input type="submit" id="submit" value="Submit" class="btn btn-primary">
+      </form>
 
-    <p ng-show="ratingsForm.rating.$error.number">Rating must be a number</p>
-    <p ng-show="ratingsForm.rating.$error.max">Rating must be 100 or less</p>
-    <p ng-show="ratingsForm.rating.$error.min">Rating must be 1 or higher</p>
-    <p ng-show="ratingsForm.rating.$error.maxlength">Rating must be 1 digit</p>
-    <p ng-show="ratingsForm.comment.$error.maxlength">Comment is too long</p>
-  </form>
+      <p ng-show="ratingsForm.rating.$error.number">Rating must be a number</p>
+      <p ng-show="ratingsForm.rating.$error.max">Rating must be 100 or less</p>
+      <p ng-show="ratingsForm.rating.$error.min">Rating must be 1 or higher</p>
+      <p ng-show="ratingsForm.rating.$error.maxlength">Rating must be 1 digit</p>
+      <p ng-show="ratingsForm.comment.$error.maxlength">Comment is too long</p>
+    </div>
+  </div>
 </div>
 
 <!-- user image
