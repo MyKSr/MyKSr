@@ -10,21 +10,20 @@
     <input type="lastname" class="form-control" id="lastname" placeholder="Last Name" ng-model="lastname">
   </div>
 
-  <fieldset class="form-group">
-    <label for="gender">Gender</label>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        M
-      </label>
-    </div>
-    <div class="form-check">
+  <label for="gender">Gender</label>
+  <div class="form-check">
     <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2">
-        F
-      </label>
-    </div>
-  </fieldset>
+      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="M" ng-model="gender" checked>
+      M
+    </label>
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="F" ng-model="gender">
+      F
+    </label>
+  </div>
+  <br>
 
   <div class="form-group">
     <label for="username">Username</label>
@@ -53,20 +52,6 @@
     <small id="fileHelp" class="form-text text-muted">This file will be shown as your selfie.</small>
   </div>
 
-  <label for="gender">Gender</label>
-    <div class="form-check">
-      <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="M" ng-model="gender" checked>
-        M
-      </label>
-    </div>
-    <div class="form-check">
-    <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="F" ng-model="gender">
-        F
-      </label>
-    </div>
-    <br>
 
 
   <button class="btn btn-primary" type="submit" name="submit">Submit</button>
