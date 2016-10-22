@@ -2,18 +2,18 @@ angular.module('myksr.ratings', [])
 
 .controller('RatingsCtrl', function($scope, $http, $window, information) {
   // On click we want to render the result of rating that person INCLUDING their new average rating
-  $scope.rate = "";
+  $scope.activityLevel = "";
+  $scope.spendingLevel = ""
   $scope.comment = "";
 
   $scope.submit = function() {
-    if ($scope.rate) {
-      information.clickedUserRating = $scope.rate;
-      information.clickedUserComment = $scope.comment;
+    if ($scope.activityLevel) {
       console.log('inside rating submit');      
     	$http({
     		method: 'POST',
     		url: '/postrating',
-        data: {rate: $scope.rate,
+        data: {activityLevel: $scope.activityLevel,
+               spendingLevel: $scope.spendingLevel,
                comment: $scope.comment,
                raterUsername: information.currentUser,
                rated: information.clickedUser
@@ -25,7 +25,8 @@ angular.module('myksr.ratings', [])
         console.error(err);
       });
       
-      $scope.rate = "";
+      $scope.activityLevel = "";
+      $scope.spendingLevel = "";
       $scope.comment = "";
     }
 
