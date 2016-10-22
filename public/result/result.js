@@ -5,11 +5,6 @@ angular.module('myksr.result', ['myksr.services'])
   $http.get(`/getAllRatings/${information.clickedUser}`).then(function (res) {
     //This should never happen because, the user would have been directed to 
     // rating page, not result page if the user has not rated this friend
-  	// $scope.avgActivity = 0;
-   //  $scope.avgSpending = 0;
-   //  $scope.avgPartying = 0;
-   //  $scope.avgNerdy = 0;
-   //  $scope.avgTalkative = 0;
   	$scope.allComments = [];
     if (!res.data[0]) {
     	alert('This person has not been rated yet');
