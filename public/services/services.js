@@ -18,6 +18,5 @@ angular.module('myksr.services', [])
   return {
     currentUser: '',
     clickedUser: '',
-    clickedUserRating: 0
   }
 })

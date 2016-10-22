@@ -32,10 +32,6 @@ angular.module('myksr.users', [])
         $window.location = '#/ratings';
       }else {
       //else direct them to the friend's info page
-        console.log('this is the result: ',response);
-        information.clickedUserRating = response.data[0].rating;
-        information.clickedUserComment = response.data[0].comment;
-        console.log('We are getting sth from server');
         $window.location = '#/result';
       }
 
