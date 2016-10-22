@@ -1,32 +1,39 @@
 angular.module('myksr.ratings', [])
 
 .controller('RatingsCtrl', function($scope, $http, $window, information) {
-  // On click we want to render the result of rating that person INCLUDING their new average rating
-  $scope.activityLevel = "";
-  $scope.spendingLevel = ""
-  $scope.comment = "";
 
   $scope.submit = function() {
-    if ($scope.activityLevel) {
-      console.log('inside rating submit');      
-    	$http({
-    		method: 'POST',
-    		url: '/postrating',
-        data: {activityLevel: $scope.activityLevel,
-               spendingLevel: $scope.spendingLevel,
-               comment: $scope.comment,
-               raterUsername: information.currentUser,
-               rated: information.clickedUser
-        }
-    	}).then(function(res) {
+    var notAllFilled = false;
+    for (var level in $scope.ratingsObj) {
+      if ($scope.ratingsObj[level].length === 0){
+        notAllFilled = true;
+      }
+    }
+    if (notAllFilled) {
+        alert('Please fill in all the fields!');
+    }else {
+      var ratingsObj = {
+                        activityLevel : $scope.activityLevel,
+                        spendingLevel : $scope.activityLevel,
+                        partyingLevel : $scope.activityLevel,
+                        nerdyLevel : $scope.activityLevel,
+                        talkativeLevel : $scope.activityLevel
+                       };
+      var reqData = {ratingsObj: ratingsObj,
+                     comment: $scope.comment,
+                     raterUsername: information.currentUser,
+                     rated: information.clickedUser
+                    }
+    	$http.post('/postrating', reqData).then(function(res) {
+        console.log('client post response from postrating: ',res);
         $window.location = '#/result';
-        console.log('CLIENT POST RES ',res);
       }, function(err) {
         console.error(err);
       });
       
-      $scope.activityLevel = "";
-      $scope.spendingLevel = "";
+      for (var level in $scope.ratingsObj) {
+        $scope.ratingsObj[level] = undefined;
+      } 
       $scope.comment = "";
     }
 
