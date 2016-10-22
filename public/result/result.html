@@ -4,5 +4,5 @@
   <p>Average rating : {{averageRating}}</p>
   <p>You rated {{ratedUser}} : {{yourRating}}</p>
   <p>Your comment : {{yourComment}}</p>
-  <p ng-repeat='comment in allComments'>{{comment}}</p>
+  <p ng-repeat='comment in allComments track by $index'>{{comment}}</p>
 </div>
