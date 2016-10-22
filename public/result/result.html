@@ -1,8 +1,46 @@
 <div ng-controller="ResultCtrl">
   <h1>Results</h1>
   <p>{{ratedUser}}</p>
-  <p>Average rating : {{averageRating}}</p>
-  <p>You rated {{ratedUser}} : {{yourRating}}</p>
-  <p>Your comment : {{yourComment}}</p>
+  <p>You rated {{ratedUser}}</p>
+  <table>
+    <tr>
+      <td>Activity level</td><td>{{yourActivity}}</td>
+    </tr>
+    <tr>
+      <td>Spending level</td><td>{{yourSpending}}</td>
+    </tr>
+    <tr>
+      <td>Partying level</td><td>{{yourPartying}}</td>
+    </tr>
+    <tr>
+      <td>Nerdy level</td><td>{{yourNerdy}}</td>
+    </tr>
+    <tr>
+      <td>Talkative level</td><td>{{yourTalkative}}</td>
+    </tr>
+    <tr>
+      <td>
+        <p>{{yourComment}}</p>
+      </td>
+    </tr>
+  </table>
+  <p>Average values</p>
+  <table>
+    <tr>
+      <td>Activity level</td><td>{{avgActivity}}</td>
+    </tr>
+    <tr>
+      <td>Spending level</td><td>{{avgSpending}}</td>
+    </tr>
+    <tr>
+      <td>Partying level</td><td>{{avgPartying}}</td>
+    </tr>
+    <tr>
+      <td>Nerdy level</td><td>{{avgNerdy}}</td>
+    </tr>
+    <tr>
+      <td>Talkative level</td><td>{{avgTalkative}}</td>
+    </tr>
+  </table>
   <p ng-repeat='comment in allComments track by $index'>{{comment}}</p>
 </div>
