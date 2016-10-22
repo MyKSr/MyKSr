@@ -24,7 +24,7 @@ app.get('/allFriends', clientToDB.fetchAllFriends);
 // User submits their completed post of rating friend
 app.post('/postrating', clientToDB.postRatingToDB);
 // User signed up already
-app.get('/checkUser/:username', clientToDB.checkUserInDB);
+app.get('/currentUserInfo/:username', clientToDB.currentUserInfoInDB);
 // User clicks friend's photo to rate, or see their current rating
 app.get('/:raterUsername/:rated', clientToDB.clickPhotoRequestHandler);
 

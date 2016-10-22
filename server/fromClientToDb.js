@@ -14,7 +14,7 @@ module.exports.clickPhotoRequestHandler = function(req, res){
                     `;
   db.query(queryString, function(err, rows) {
     if (err) {
-      console.error('We got an error from attempt to fetch rating information', err);
+      console.error('We got an error from attempt to fetch rating inf ormation', err);
       throw err;
     }
     console.log('This is what we get from friend click: ', rows);
@@ -81,7 +81,7 @@ module.exports.fetchAllFriends = (req, res) => {
   });
 }
 
-module.exports.checkUserInDB = (req, res) => {
+module.exports.currentUserInfoInDB = (req, res) => {
   var username = req.params.username;
   console.log('USER: ', username);
   var queryString = `SELECT username
