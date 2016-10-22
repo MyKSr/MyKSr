@@ -17,11 +17,19 @@ angular.module('myksr.profile', [])
 	    	var count = 0;
 	    	for (var ratingObj of res.data) {
 	    		count++;
-	        $scope.averageRating += ratingObj.rating;
+	        $scope.avgActivity = ratingObj.activityLevel;
+	        $scope.avgSpending = ratingObj.spendingLevel;
+	        $scope.avgPartying = ratingObj.partyingLevel;
+	        $scope.avgNerdy = ratingObj.nerdyLevel;
+	        $scope.avgTalkative = ratingObj.talkativeLevel;
 	        $scope.allComments.push(ratingObj.comment);
 	    	}
-	    	$scope.averageRating = Math.round($scope.averageRating/count*10)/10;
-	    }
+	      $scope.avgActivity = Math.round($scope.avgActivity/count*10)/10;
+	      $scope.avgSpending = Math.round($scope.avgSpending/count*10)/10;
+	      $scope.avgPartying = Math.round($scope.avgPartying/count*10)/10;
+	      $scope.avgNerdy = Math.round($scope.avgNerdy/count*10)/10;
+	      $scope.avgTalkative = Math.round($scope.avgTalkative/count*10)/10;
+ 	    }
 	  });
   });
 });
