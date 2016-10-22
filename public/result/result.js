@@ -23,7 +23,7 @@ angular.module('myksr.result', ['myksr.services'])
         $scope.averageRating += ratingObj.rating;
         $scope.allComments.push(ratingObj.comment);
     	}
-    	$scope.averageRating = $scope.averageRating/count;
+    	$scope.averageRating = Math.round($scope.averageRating/count, -1);
     }
   });
 });
