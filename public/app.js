@@ -55,7 +55,7 @@ myksr.controller('appCtrl', function($scope, $window, information, $http){
     var profile = googleUser.getBasicProfile();
     information.currentUser = profile.getGivenName();
     information.image = profile.getImageUrl();
-     $http.get('/checkUser/'+profile.getGivenName()).then(function(res){
+     $http.get('/currentUserInfo/'+profile.getGivenName()).then(function(res){
         console.log('SIGNED IN USER', res.data);
         if(!res.data[0]){
          $http.post('/signup', {

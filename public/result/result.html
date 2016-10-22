@@ -1,6 +1,8 @@
 <div ng-controller="ResultCtrl">
   <h1>Results</h1>
   <p>{{ratedUser}}</p>
-  <p>{{clickedUserRating}}</p>
-  <p>{{clickedUserComment}}</p>
+  <p>Average rating : {{averageRating}}</p>
+  <p>You rated {{ratedUser}} : {{yourRating}}</p>
+  <p>Your comment : {{yourComment}}</p>
+  <p ng-repeat='comment in allComments track by $index'>{{comment}}</p>
 </div>

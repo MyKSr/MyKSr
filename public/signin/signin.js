@@ -5,7 +5,7 @@ angular.module('myksr.signin', [])
 		if (!$scope.username.length){
       alert('Tell us what your first name is!');
 		} else {
-		  $http.get('/checkUser/'+$scope.username).then(function (res) {
+		  $http.get('/currentUserInfo/'+$scope.username).then(function (res) {
 		  	if(res.data[0]){
           information.currentUser = $scope.username;
           $window.location = '#/users';

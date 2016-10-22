@@ -14,7 +14,7 @@ module.exports.clickPhotoRequestHandler = function(req, res){
                     `;
   db.query(queryString, function(err, rows) {
     if (err) {
-      console.error('We got an error from attempt to fetch rating information', err);
+      console.error('We got an error from attempt to fetch rating inf ormation', err);
       throw err;
     }
     console.log('This is what we get from friend click: ', rows);
@@ -81,19 +81,36 @@ module.exports.fetchAllFriends = (req, res) => {
   });
 }
 
-module.exports.checkUserInDB = (req, res) => {
+module.exports.currentUserInfoInDB = (req, res) => {
   var username = req.params.username;
-  console.log('USER: ', username);
-  var queryString = `SELECT username
+  var queryString = `SELECT *
                      FROM rater
-                     WHERE username = '${username}'
-                     `;
+                     WHERE username = '${username}';
+                    `;
   db.query(queryString, (err, rows) => {
-    console.log('USER DATA: ',rows);
     if (err) {
-      console.log('Cannot get user');
+      console.log('Cannot get current user information');
       throw err;
     }
+    console.log('Successfully fetched current user information');
+    res.send(200, rows);
+  });
+}
+
+module.exports.getAllRatingsOfUser = (req, res) => {
+  var clickedUser = req.params.clickedUser;
+  var queryString = `SELECT * 
+                     FROM ratings
+                     INNER JOIN rated on ratings.ratedId = rated.ratedId
+                     INNER JOIN rater on ratings.raterId = rater.raterId
+                     WHERE rated.name = '${clickedUser}';
+                    `
+  db.query(queryString, (err, rows) => {
+    if (err) {
+      console.log('Cannot get clicked user ratings');
+      throw err;
+    }
+    console.log('Successfully fetched clicked user information: ', rows);
     res.send(200, rows);
   });
 }

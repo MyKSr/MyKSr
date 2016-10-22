@@ -22,7 +22,7 @@ angular.module('myksr.signup', [])
 		}else if ($scope.password1 !== $scope.password2) {
       alert('Your confirm password does not match your desired password');
 		}else {
-		  $http.get('/checkUser/'+$scope.username).then(function (res) {
+		  $http.get('/currentUserInfo/'+$scope.username).then(function (res) {
 		  	// console.log('This is what we get back', res.data);
 		  	if(!res.data[0]){
 		  		$http.post('/signup', signupUserInfo).then(function () {
@@ -32,7 +32,7 @@ angular.module('myksr.signup', [])
 		  		});
 		  	}
 		  	else{
-		  		alert('User with the same firstname exists');
+		  		alert('User with the same username exists');
 		  	}
 		  });
 		}
