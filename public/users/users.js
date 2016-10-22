@@ -10,23 +10,22 @@ angular.module('myksr.users', [])
   $scope.fetchGroupMembers =  function() {
     $http.get('/allFriends').then(function (response) {
       //expect to get an array of data
-      console.log(response);
       console.log('Successfully fetched all users from server');
       $scope.groupFriends = response.data;
     }, function (error) {
       console.log('Only friend in our db in the same group as you is the owl.');
       console.log('Actually I failed to fetch data...');
-      $scope.groupFriends = ['owl'];
+      $scope.groupFriends = [{name:'owl'}];
     });
   }
   $scope.rate = function() {
     $window.location = '#/ratings';
   }
 
-  $scope.clickFriend = function(rater, rated) {
-    console.log(rater, rated);
+  $scope.clickFriend = function(raterUsername, rated) {
+    console.log(raterUsername, rated);
     information.clickedUser = rated;
-    var urlString = `/${rater}/${rated}`;
+    var urlString = `/${raterUsername}/${rated}`;
     $http.get(urlString).then(function (response) {
       if (!response.data[0]){
       // If !(response), redirect them to rating page

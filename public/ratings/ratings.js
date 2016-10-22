@@ -15,14 +15,14 @@ angular.module('myksr.ratings', [])
     		url: '/postrating',
         data: {rate: $scope.rate,
                comment: $scope.comment,
-               rater: information.currentUser,
+               raterUsername: information.currentUser,
                rated: information.clickedUser
         }
     	}).then(function(res) {
         $window.location = '#/result';
         console.log('CLIENT POST RES ',res);
-      }, function(res) {
-        console.error(res);
+      }, function(err) {
+        console.error(err);
       });
       
       $scope.rate = "";
