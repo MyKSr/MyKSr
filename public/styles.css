@@ -5,6 +5,10 @@
   margin-top: -10px;
 }
 
+.viewInstance {
+  margin-top:100px;
+}
+
 body {
   text-align: center;
   font-family: Calibri;
@@ -82,4 +86,11 @@ label {
     ), url('./assets/background/background.png');
   background-position: top;
   opacity: 0.7;
+}
+
+.friendDisplay {
+  position: center;
+  width: 80vw;
+  margin: 0px;
+  padding: 0px;
 }

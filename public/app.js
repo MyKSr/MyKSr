@@ -4,6 +4,9 @@ myksr.config(function($routeProvider) {
 
   $routeProvider
   .when('/', {
+    templateUrl: 'welcome/welcome.html'
+  })
+  .when('/users', {
     templateUrl: 'users/users.html',
     controller: 'UsersCtrl'
   })
