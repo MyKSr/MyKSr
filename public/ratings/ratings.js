@@ -14,10 +14,10 @@ angular.module('myksr.ratings', [])
     }else {
       var ratingsObj = {
                         activityLevel : $scope.activityLevel,
-                        spendingLevel : $scope.activityLevel,
-                        partyingLevel : $scope.activityLevel,
-                        nerdyLevel : $scope.activityLevel,
-                        talkativeLevel : $scope.activityLevel
+                        spendingLevel : $scope.spendingLevel,
+                        partyingLevel : $scope.partyingLevel,
+                        nerdyLevel : $scope.nerdyLevel,
+                        talkativeLevel : $scope.talkativeLevel
                        };
       var reqData = {ratingsObj: ratingsObj,
                      comment: $scope.comment,

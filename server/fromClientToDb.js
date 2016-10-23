@@ -85,12 +85,22 @@ module.exports.fetchAllFriends = (req, res) => {
   });
 }
 
+<<<<<<< 17ed9886ab4b66d81322dbc6a8d016818b9a8770
 module.exports.currentUserInfoInDB = (req, res) => {
   var username = req.params.username;
   var queryString = `SELECT *
                      FROM rater
                      WHERE username = '${username}';
                     `;
+=======
+module.exports.checkUserInDB = (req, res) => {
+  var username = req.params.username;
+  console.log('USER: ', username);
+  var queryString = `SELECT username
+                     FROM rater
+                     WHERE username = '${username}'
+                     `;
+>>>>>>> now keeps track of username, not firstname
   db.query(queryString, (err, rows) => {
     if (err) {
       console.log('Cannot get current user information');
