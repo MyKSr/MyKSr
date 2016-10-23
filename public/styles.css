@@ -99,3 +99,14 @@ label {
   margin: 0px;
   padding: 0px;
 }
+
+.lowVal {
+  float: left;
+}
+.highVal {
+  float: right;
+}
+
+.ratingInput {
+  margin-bottom:20px;
+}

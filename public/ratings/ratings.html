@@ -2,15 +2,45 @@
   <div class="container">
     <div class="form-group">
       <form name="ratingsForm" ng-submit="submit()" id="ratingsForm">
-        <input type="number" class="form-control" ng-model="activityLevel" name="activityLevel" placeholder="Enter activity level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
+        <div class="ratingInput activity">
+          How often does {{clickedUser}} do an outdoor activity?<br>
+          <span class="lowVal">prefers home </span>
+          <span> {{clickedUser}}{{activityStr}}</span>
+          <span class="highVal">everyweek for SURE!</span>
+          <input type="range" min="0" max="100" value="50" ng-model="activityLevel" ng-change="updateStr('activity', {{activityLevel}})"/>
+        </div>
 
-        <input type="number" class="form-control" ng-model="spendingLevel" name="spendingLevel" placeholder="Enter spending level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
+        <div class="ratingInput spending">
+          How is {{clickedUser}}'s spending habit?<br>
+          <span class="lowVal">saves first</span>
+          <span> {{clickedUser}}{{spendingStr}}</span>
+          <span class="highVal">enjoys first</span>
+          <input type="range" min="0" max="100" value="50" ng-model="spendingLevel" ng-change="updateStr('spending', {{spendingLevel}})"/>
+        </div>
 
-        <input type="number" class="form-control" ng-model="partyingLevel" name="partyingLevel" placeholder="Enter partying level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
+        <div class="ratingInput activity">
+          How often does {{clickedUser}} PARTY?<br>
+          <span class="lowVal">nonAlchohol</span>
+          <span> {{clickedUser}}{{partyingStr}}</span>
+          <span class="highVal">ANIMAL!</span>
+          <input type="range" min="0" max="100" value="50" ng-model="partyingLevel" ng-change="updateStr('partying', {{partyingLevel}})"/>
+        </div>
 
-        <input type="number" class="form-control" ng-model="nerdyLevel" name="nerdyLevel" placeholder="Enter nerdy level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
+        <div class="ratingInput nerdy">
+          How often does {{clickedUser}} talk about work/code?<br>
+          <span class="lowVal">rarely </span>
+          <span> {{clickedUser}}{{nerdyStr}}</span>
+          <span class="highVal">all about!</span>
+          <input type="range" min="0" max="100" value="50" ng-model="nerdyLevel" ng-change="updateStr('nerdy', {{nerdyLevel}})"/>
+        </div>
 
-        <input type="number" class="form-control" ng-model="talkativeLevel" name="talkativeLevel" placeholder="Enter talkative level rating" ng-maxlength="3" ng-max="100" ng-min="1" required>
+        <div class="ratingInput talkative">
+          How easygoing is {{clickedUser}}?<br>
+          <span class="lowVal"></span>
+          <span> {{clickedUser}}{{talkativeStr}}</span>
+          <span class="highVal">very!</span>
+          <input type="range" min="0" max="100" value="50" ng-model="talkativeLevel" ng-change="updateStr('talkative', {{talkativeLevel}})"/>
+        </div>
 
         <textarea class="form-control" rows="3" id="textarea" ng-model="comment" name="comment" ng-maxlength="255" placeholder="Leave a comment here"></textarea>
 

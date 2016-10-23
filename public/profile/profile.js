@@ -2,7 +2,6 @@ angular.module('myksr.profile', [])
 
 .controller('ProfileCtrl', function($scope, information, $http){
   $http.get(`/currentUserInfo/${information.currentUser}`).then(function (res) {
-	  console.log('clientside profile: ', res.data[0]);
 	  $scope.avgActivity = 0;
     $scope.avgSpending = 0;
     $scope.avgPartying = 0;

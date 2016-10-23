@@ -23,7 +23,6 @@ angular.module('myksr.users', [])
   }
 
   $scope.clickFriend = function(raterUsername, rated) {
-    console.log(raterUsername, rated);
     information.clickedUser = rated;
     var urlString = `/${raterUsername}/${rated}`;
     $http.get(urlString).then(function (response) {
