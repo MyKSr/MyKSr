@@ -3,9 +3,9 @@ angular.module('myksr.signin', [])
 .controller('signinCtrl', function ($scope, $http, $window, information) {
 	$scope.submitSignin = function (){
 		if (!$scope.username.length){
-      alert('Tell us what your first name is!');
+      alert('Tell us what your user name is!');
 		} else {
-		  $http.get('/checkUserInfo/'+$scope.username).then(function (res) {
+		  $http.get('/currentUserInfo/'+$scope.username).then(function (res) {
 		  	if(res.data[0]){
           information.currentUser = $scope.username;
           $window.location = '#/users';
