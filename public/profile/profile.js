@@ -3,6 +3,11 @@ angular.module('myksr.profile', [])
 .controller('ProfileCtrl', function($scope, information, $http){
   $http.get(`/currentUserInfo/${information.currentUser}`).then(function (res) {
 	  console.log('clientside profile: ', res.data[0]);
+	  $scope.avgActivity = 0;
+    $scope.avgSpending = 0;
+    $scope.avgPartying = 0;
+    $scope.avgNerdy = 0;
+    $scope.avgTalkative = 0;
     $scope.firstname = res.data[0].firstname;
     $scope.lastname = res.data[0].lastname;
     $scope.gender = res.data[0].gender;
@@ -17,11 +22,11 @@ angular.module('myksr.profile', [])
 	    	var count = 0;
 	    	for (var ratingObj of res.data) {
 	    		count++;
-	        $scope.avgActivity = ratingObj.activityLevel;
-	        $scope.avgSpending = ratingObj.spendingLevel;
-	        $scope.avgPartying = ratingObj.partyingLevel;
-	        $scope.avgNerdy = ratingObj.nerdyLevel;
-	        $scope.avgTalkative = ratingObj.talkativeLevel;
+	        $scope.avgActivity += ratingObj.activityLevel;
+	        $scope.avgSpending += ratingObj.spendingLevel;
+	        $scope.avgPartying += ratingObj.partyingLevel;
+	        $scope.avgNerdy += ratingObj.nerdyLevel;
+	        $scope.avgTalkative += ratingObj.talkativeLevel;
 	        $scope.allComments.push(ratingObj.comment);
 	    	}
 	      $scope.avgActivity = Math.round($scope.avgActivity/count*10)/10;

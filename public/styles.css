@@ -7,22 +7,47 @@
 
 body {
   text-align: center;
-  font-family: Calibri;
+  /*font-family: Calibri;*/
+  /*font-family: 'Slabo 27px', serif;*/
+  font-family: 'Rubik', sans-serif;
   color: #46494c;
 }
 
+.body {
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
 .content-display {
-  background-image: url('./assets/background/background2.jpg');
-  padding: 20px;
+  background: no-repeat center fixed;
+  background-size: cover;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)
+    ), url('http://cdn.playbuzz.com/cdn/b38c571d-492b-43e7-8bb0-dea32173ec3e/a503c371-e142-4e3e-8dfc-47e3c3cdf231.jpg');
+  padding-top: 20px;
   min-height: 100vh;
 }
 
 .container {
+  color:black;
+  margin-top:100px;
   font-size: 16px;
   max-width: 600px;
-  background-color: white;
   box-shadow: 0px 5px 10px #888889;
   padding: 15px;
+  background-color: rgba(255, 255, 255, 0.9);
+ /* background-image: linear-gradient(
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
+    ),url('https://pixabay.com/static/uploads/photo/2016/03/15/02/42/floor-1256804_1280.jpg');
+*/
+
+}
+
+.friendPhotoView {
+  margin-top: 80px;
 }
 
 label {
@@ -74,12 +99,21 @@ label {
 .header {
   color: white;
   height: 45vh;
-  padding-top: 150px;
-  background-image:
-  linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-    ), url('./assets/background/background.png');
+  margin-top: 110px;
+  padding-top: 40px;
   background-position: top;
-  opacity: 0.7;
+  background-color: rgba(0, 0, 0, 0.6);
+  /*background-image:*/
+    /*url('https://i.ytimg.com/vi/0zG_lckuzbo/maxresdefault.jpg');
+    url('http://az616578.vo.msecnd.net/files/2016/04/01/6359508041117319461703337165_A872A67159F54144A204A2E632FE4123.ashx.jpeg')*/
+}
+.welcomeMessage {
+  font-size: 70px;
+}
+
+.friendDisplay {
+  position: center;
+  width: 80vw;
+  margin: 0px;
+  padding: 0px;
 }
