@@ -7,7 +7,9 @@
 
 body {
   text-align: center;
-  font-family: Calibri;
+  /*font-family: Calibri;*/
+  /*font-family: 'Slabo 27px', serif;*/
+  font-family: 'Rubik', sans-serif;
   color: #46494c;
 }
 
@@ -32,9 +34,14 @@ body {
   margin-top:100px;
   font-size: 16px;
   max-width: 600px;
-  background-color: white;
   box-shadow: 0px 5px 10px #888889;
   padding: 15px;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.5)
+    ),url('https://pixabay.com/static/uploads/photo/2016/03/15/02/42/floor-1256804_1280.jpg');
+
+
 }
 
 .friendPhotoView {
