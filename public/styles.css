@@ -26,21 +26,23 @@ body {
     rgba(0, 0, 0, 0.3),
     rgba(0, 0, 0, 0.3)
     ), url('http://cdn.playbuzz.com/cdn/b38c571d-492b-43e7-8bb0-dea32173ec3e/a503c371-e142-4e3e-8dfc-47e3c3cdf231.jpg');
-  padding: 20px;
+  padding-top: 20px;
   min-height: 100vh;
 }
 
 .container {
+  color:black;
   margin-top:100px;
   font-size: 16px;
   max-width: 600px;
   box-shadow: 0px 5px 10px #888889;
   padding: 15px;
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.5)
+  background-color: rgba(255, 255, 255, 0.9);
+ /* background-image: linear-gradient(
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.3)
     ),url('https://pixabay.com/static/uploads/photo/2016/03/15/02/42/floor-1256804_1280.jpg');
-
+*/
 
 }
 
@@ -97,11 +99,16 @@ label {
 .header {
   color: white;
   height: 45vh;
-  padding-top: 150px;
+  margin-top: 110px;
+  padding-top: 40px;
+  background-position: top;
+  background-color: rgba(0, 0, 0, 0.6);
   /*background-image:*/
     /*url('https://i.ytimg.com/vi/0zG_lckuzbo/maxresdefault.jpg');
     url('http://az616578.vo.msecnd.net/files/2016/04/01/6359508041117319461703337165_A872A67159F54144A204A2E632FE4123.ashx.jpeg')*/
-  background-position: top;
+}
+.welcomeMessage {
+  font-size: 70px;
 }
 
 .friendDisplay {
