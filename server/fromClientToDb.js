@@ -4,7 +4,6 @@ var db = require('../db/db.js');
 module.exports.clickPhotoRequestHandler = function(req, res){
   var raterUsername = req.params.raterUsername;
   var rated = req.params.rated;
-  console.log(raterUsername, rated);
   var queryString = `SELECT id
                      FROM ratings
                      INNER JOIN rater on ratings.raterId = rater.raterId
@@ -23,7 +22,6 @@ module.exports.clickPhotoRequestHandler = function(req, res){
 }
 
 module.exports.postRatingToDB = (req, res) => {
-  console.log('post request body from postrating: ',req.body);
   var queryString = `INSERT INTO ratings
                      (id, activityLevel, spendingLevel, partyingLevel, nerdyLevel, talkativeLevel, raterId, ratedId, comment) VALUES
                      (null, '${req.body.ratingsObj.activityLevel}', 
@@ -47,14 +45,12 @@ module.exports.postRatingToDB = (req, res) => {
 }
 
 module.exports.postSignupToDB = (req, res) => {
-  console.log('postSignupToDB is being invoked');
   var firstname = req.body.firstname;
   var lastname = req.body.lastname;
   var username = req.body.username;
   var gender = req.body.gender;
   var email = req.body.email;
   var password = req.body.password;
-  console.log('post req body', firstname, lastname, username, email, password);
   var queryString = `INSERT INTO rater
                      (raterId, firstname, lastname, gender, username, email, password) VALUES
                      (null, '${firstname}', '${lastname}', '${gender}', '${username}', '${email}', '${password}');
@@ -69,7 +65,6 @@ module.exports.postSignupToDB = (req, res) => {
 }
 
 module.exports.fetchAllFriends = (req, res) => {
-  console.log('fetchAllFriends is being invoked');
   // later add where group = current user's group, this means that
   // we have to get the group information to the server
   var queryString = `SELECT *
@@ -96,7 +91,7 @@ module.exports.currentUserInfoInDB = (req, res) => {
       console.log('Cannot get current user information');
       throw err;
     }
-    console.log('Successfully fetched current user information', rows);
+    console.log('Successfully fetched current user information');
     res.send(200, rows);
   });
 }
@@ -114,7 +109,7 @@ module.exports.getAllRatingsOfUser = (req, res) => {
       console.log('Cannot get clicked user ratings');
       throw err;
     }
-    console.log('Successfully fetched clicked user information: ');
+    console.log('Successfully fetched clicked user information');
     res.send(200, rows);
   });
 }
