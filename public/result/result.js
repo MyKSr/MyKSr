@@ -5,7 +5,6 @@ angular.module('myksr.result', ['myksr.services'])
   $http.get(`/getAllRatings/${information.clickedUser}`).then(function (res) {
     //This should never happen because, the user would have been directed to 
     // rating page, not result page if the user has not rated this friend
-  	$scope.averageRating = 0;
   	$scope.allComments = [];
     if (!res.data[0]) {
     	alert('This person has not been rated yet');
@@ -17,13 +16,25 @@ angular.module('myksr.result', ['myksr.services'])
     		count++;
         if (ratingObj.username === information.currentUser) {
         	$scope.currnetUserName = ratingObj.firstname;
-          $scope.yourRating = ratingObj.rating;
+          $scope.yourActivity = ratingObj.activityLevel;
+          $scope.yourSpending = ratingObj.spendingLevel;
+          $scope.yourPartying = ratingObj.partyingLevel;
+          $scope.yourNerdy = ratingObj.nerdyLevel;
+          $scope.yourTalkative = ratingObj.talkativeLevel;
           $scope.yourComment = ratingObj.comment;
         }
-        $scope.averageRating += ratingObj.rating;
+        $scope.avgActivity = ratingObj.activityLevel;
+        $scope.avgSpending = ratingObj.spendingLevel;
+        $scope.avgPartying = ratingObj.partyingLevel;
+        $scope.avgNerdy = ratingObj.nerdyLevel;
+        $scope.avgTalkative = ratingObj.talkativeLevel;
         $scope.allComments.push(ratingObj.comment);
     	}
-    	$scope.averageRating = Math.round($scope.averageRating/count*10)/10;
+      $scope.avgActivity = Math.round($scope.avgActivity/count*10)/10;
+      $scope.avgSpending = Math.round($scope.avgSpending/count*10)/10;
+      $scope.avgPartying = Math.round($scope.avgPartying/count*10)/10;
+      $scope.avgNerdy = Math.round($scope.avgNerdy/count*10)/10;
+      $scope.avgTalkative = Math.round($scope.avgTalkative/count*10)/10;
     }
   });
 });

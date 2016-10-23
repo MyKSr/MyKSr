@@ -5,7 +5,7 @@ module.exports.clickPhotoRequestHandler = function(req, res){
   var raterUsername = req.params.raterUsername;
   var rated = req.params.rated;
   console.log(raterUsername, rated);
-  var queryString = `SELECT rating, comment
+  var queryString = `SELECT id
                      FROM ratings
                      INNER JOIN rater on ratings.raterId = rater.raterId
                      INNER JOIN rated on ratings.ratedId = rated.ratedId
@@ -23,14 +23,18 @@ module.exports.clickPhotoRequestHandler = function(req, res){
 }
 
 module.exports.postRatingToDB = (req, res) => {
-  console.log('POST REQ BODY ',req.body.rate);
+  console.log('post request body from postrating: ',req.body);
   var queryString = `INSERT INTO ratings
-                     (id, rating, raterId, ratedId, comment) VALUES
-                     (null, '${req.body.rate}',
+                     (id, activityLevel, spendingLevel, partyingLevel, nerdyLevel, talkativeLevel, raterId, ratedId, comment) VALUES
+                     (null, '${req.body.ratingsObj.activityLevel}', 
+                     '${req.body.ratingsObj.spendingLevel}',
+                     '${req.body.ratingsObj.partyingLevel}',
+                     '${req.body.ratingsObj.nerdyLevel}',
+                     '${req.body.ratingsObj.talkativeLevel}',
                      (SELECT raterId FROM rater WHERE username = '${req.body.raterUsername}'),
                      (SELECT ratedId FROM rated WHERE name = '${req.body.rated}'),
-                     '${req.body.comment}'
-                     );`;
+                     '${req.body.comment}');
+                     `;
   db.query(queryString, (err, rows) => {
     if (err) {
       console.log('DID NOT POST TO DB', err);

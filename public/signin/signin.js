@@ -3,7 +3,7 @@ angular.module('myksr.signin', [])
 .controller('signinCtrl', function ($scope, $http, $window, information) {
 	$scope.submitSignin = function (){
 		if (!$scope.username.length){
-      alert('Tell us what your first name is!');
+      alert('Tell us what your user name is!');
 		} else {
 		  $http.get('/currentUserInfo/'+$scope.username).then(function (res) {
 		  	if(res.data[0]){
@@ -11,7 +11,7 @@ angular.module('myksr.signin', [])
           $window.location = '#/users';
 		  	}
 		  	else{
-		  		alert('User with the firstname dose not exist!');
+		  		alert('User with the username dose not exist!');
 		  	}
 		  });
 		}
