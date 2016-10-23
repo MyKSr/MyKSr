@@ -2,6 +2,11 @@ angular.module('myksr.result', ['myksr.services'])
 
 .controller('ResultCtrl', function($scope, information, $http) {
   $scope.ratedUser = information.clickedUser;
+  $scope.avgActivity = 0;
+  $scope.avgSpending = 0;
+  $scope.avgPartying = 0;
+  $scope.avgNerdy = 0;
+  $scope.avgTalkative = 0;
   $http.get(`/getAllRatings/${information.clickedUser}`).then(function (res) {
     //This should never happen because, the user would have been directed to 
     // rating page, not result page if the user has not rated this friend
@@ -23,11 +28,11 @@ angular.module('myksr.result', ['myksr.services'])
           $scope.yourTalkative = ratingObj.talkativeLevel;
           $scope.yourComment = ratingObj.comment;
         }
-        $scope.avgActivity = ratingObj.activityLevel;
-        $scope.avgSpending = ratingObj.spendingLevel;
-        $scope.avgPartying = ratingObj.partyingLevel;
-        $scope.avgNerdy = ratingObj.nerdyLevel;
-        $scope.avgTalkative = ratingObj.talkativeLevel;
+        $scope.avgActivity += ratingObj.activityLevel;
+        $scope.avgSpending += ratingObj.spendingLevel;
+        $scope.avgPartying += ratingObj.partyingLevel;
+        $scope.avgNerdy += ratingObj.nerdyLevel;
+        $scope.avgTalkative += ratingObj.talkativeLevel;
         $scope.allComments.push(ratingObj.comment);
     	}
       $scope.avgActivity = Math.round($scope.avgActivity/count*10)/10;
