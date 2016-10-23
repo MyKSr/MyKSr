@@ -16,7 +16,13 @@ body {
 }
 
 .content-display {
-  background-image: url('./assets/background/background2.jpg');
+  background-color: rgb(230,230,230);
+  background: no-repeat center fixed;
+  background-size: cover;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 0.3)
+    ), url('http://cdn.playbuzz.com/cdn/b38c571d-492b-43e7-8bb0-dea32173ec3e/a503c371-e142-4e3e-8dfc-47e3c3cdf231.jpg');
   padding: 20px;
   min-height: 100vh;
 }
@@ -79,11 +85,9 @@ label {
   color: white;
   height: 45vh;
   padding-top: 150px;
-  background-image:
-  linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0.5)
-    ), url('./assets/background/background.png');
+  /*background-image:*/
+    /*url('https://i.ytimg.com/vi/0zG_lckuzbo/maxresdefault.jpg');
+    url('http://az616578.vo.msecnd.net/files/2016/04/01/6359508041117319461703337165_A872A67159F54144A204A2E632FE4123.ashx.jpeg')*/
   background-position: top;
   opacity: 0.7;
 }
