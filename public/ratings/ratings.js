@@ -47,17 +47,11 @@ angular.module('myksr.ratings', [])
       }, function(err) {
         console.error(err);
       });
-      
+
       for (var level in $scope.ratingsObj) {
         $scope.ratingsObj[level] = undefined;
-      } 
+      }
       $scope.comment = "";
     }
-
-
   }
-})
-.factory('ratingService', function(){
-    this.currentRating = 0;
 });
-

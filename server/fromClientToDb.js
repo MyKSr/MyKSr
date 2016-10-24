@@ -16,7 +16,7 @@ module.exports.clickPhotoRequestHandler = function(req, res){
       console.error('We got an error from attempt to fetch rating inf ormation', err);
       throw err;
     }
-    console.log('This is what we get from friend click: ', rows);
+    console.log('This is what we get from friend click');
     res.send(200, rows);
   })
 }

@@ -14,7 +14,7 @@ angular.module('myksr.signup', [])
 		}
 		var emptyField = false;
 		for (var info in signupUserInfo) {
-			console.log('for in loop', signupUserInfo[info]);
+			// console.log('for in loop', signupUserInfo[info]);
 			if (!signupUserInfo[info]) {
         emptyField = true;
 			}
@@ -28,7 +28,7 @@ angular.module('myksr.signup', [])
 		  	// console.log('This is what we get back', res.data);
 		  	if(!res.data[0]){
 		  		$http.post('/signup', signupUserInfo).then(function () {
-		  			console.log('user successfully signed up');
+		  			// console.log('user successfully signed up');
 	          information.currentUser = $scope.username;
 	          information.currentUserFirstname = $scope.firstname;
 	          $window.location = '#/users';

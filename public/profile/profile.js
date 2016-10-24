@@ -16,7 +16,11 @@ angular.module('myksr.profile', [])
 	  $http.get(`/getAllRatings/${res.data[0].firstname}`).then(function (res) {
 	  	$scope.allComments = [];
 	    if (!res.data[0]) {
-	    	alert('You have not been rated yet');
+        $scope.strActivity = "Nobody has rated you!";
+        $scope.strSpending = "Nobody has rated you!";
+        $scope.strPartying = "Nobody has rated you!";
+        $scope.strNerdy = "Nobody has rated you!";
+        $scope.strTalkative = "Nobody has rated you!";
 	    } else {
 	    	var count = 0;
 	    	for (var ratingObj of res.data) {
