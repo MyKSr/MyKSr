@@ -5,7 +5,6 @@
     <div class="form-group">
       <input type="text" class="form-control" placeholder="Search" ng-model="query">
     </div>
-    <button type="submit" class="btn btn-default" ng-click="clickHandler()">Submit</button>
   </form>
 
   <div class="showpic" ng-repeat='friend in groupFriends | filter:query' ng-click="clickFriend(currentUser, friend.name)">
