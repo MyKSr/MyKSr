@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const db = require('../db/db.js');
 const request = require('request');
 const clientToDB = require('./fromClientToDb');
+const multer  = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 const app = express();
 //set up the port, 3000 by default

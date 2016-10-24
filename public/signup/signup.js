@@ -8,7 +8,8 @@ angular.module('myksr.signup', [])
       username : $scope.username,
       email : $scope.email,
       password : $scope.password1,
-      gender : $scope.gender
+      gender : $scope.gender,
+			pic: $scope.pic
 		}
 		var emptyField = false;
 		for (var info in signupUserInfo) {
