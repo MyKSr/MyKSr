@@ -110,3 +110,9 @@ label {
 .ratingInput {
   margin-bottom:20px;
 }
+
+td {
+  width:150px;
+  text-align: left;
+}
+

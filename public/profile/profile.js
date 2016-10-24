@@ -1,8 +1,8 @@
 angular.module('myksr.profile', [])
 
-.controller('ProfileCtrl', function($scope, information, $http){
+.controller('ProfileCtrl', function($scope, information, $http, stringifyFunc){
   $http.get(`/currentUserInfo/${information.currentUser}`).then(function (res) {
-	  $scope.avgActivity = 0;
+    $scope.avgActivity = 0;
     $scope.avgSpending = 0;
     $scope.avgPartying = 0;
     $scope.avgNerdy = 0;
@@ -12,8 +12,8 @@ angular.module('myksr.profile', [])
     $scope.gender = res.data[0].gender;
     $scope.email = res.data[0].email;
     $scope.username = res.data[0].username;
+    $scope.subject = ($scope.gender === 'M')? 'He' : 'She';
 	  $http.get(`/getAllRatings/${res.data[0].firstname}`).then(function (res) {
-	  	$scope.averageRating = 0;
 	  	$scope.allComments = [];
 	    if (!res.data[0]) {
 	    	alert('You have not been rated yet');
@@ -28,11 +28,16 @@ angular.module('myksr.profile', [])
 	        $scope.avgTalkative += ratingObj.talkativeLevel;
 	        $scope.allComments.push(ratingObj.comment);
 	    	}
-	      $scope.avgActivity = Math.round($scope.avgActivity/count*10)/10;
-	      $scope.avgSpending = Math.round($scope.avgSpending/count*10)/10;
-	      $scope.avgPartying = Math.round($scope.avgPartying/count*10)/10;
-	      $scope.avgNerdy = Math.round($scope.avgNerdy/count*10)/10;
-	      $scope.avgTalkative = Math.round($scope.avgTalkative/count*10)/10;
+	      var avgAct = Math.round($scope.avgActivity/count*10)/10;
+	      var avgSpend = Math.round($scope.avgSpending/count*10)/10;
+	      var avgParty = Math.round($scope.avgPartying/count*10)/10;
+	      var avgNerd = Math.round($scope.avgNerdy/count*10)/10;
+	      var avgTalk = Math.round($scope.avgTalkative/count*10)/10;
+			  $scope.strActivity = stringifyFunc.strfy('activity', avgAct);
+		    $scope.strSpending = stringifyFunc.strfy('spending', avgSpend);
+		    $scope.strPartying = stringifyFunc.strfy('partying', avgParty);
+		    $scope.strNerdy = stringifyFunc.strfy('nerdy', avgNerd);
+		    $scope.strTalkative = stringifyFunc.strfy('talkative', avgTalk);
  	    }
 	  });
   });

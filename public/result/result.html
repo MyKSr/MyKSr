@@ -1,49 +1,50 @@
 <div ng-controller="ResultCtrl" class="viewInstance">
   <div class="container">
     <div class="form-group">
-      <p>{{ratedUser}}</p>
-      <p>You rated {{ratedUser}}</p>
+      <h3>What you friends said about {{ratedUser}}!</h3>
+      <table class="resultTable">
+        <tr>
+          <td>Outdoor activity?</td> <td>{{subject}} {{strActivity}}</td>
+        </tr>
+        <tr>
+          <td>Spending habbit?</td><td>{{subject}} {{strSpending}}</td>
+        </tr>
+        <tr>
+          <td>Party!?!?</td><td>{{subject}} {{strPartying}}</td>
+        </tr>
+        <tr>
+          <td>Talk about work?</td><td>{{subject}} {{strNerdy}}</td>
+        </tr>
+        <tr>
+          <td>Easygoing?</td><td>{{subject}} {{strTalkative}}</td>
+        </tr>
+      </table class="resultTable">
+      <h3>Comments</h3>
       <table>
-        <tr>
-          <td>Activity level</td><td>{{yourActivity}}</td>
-        </tr>
-        <tr>
-          <td>Spending level</td><td>{{yourSpending}}</td>
-        </tr>
-        <tr>
-          <td>Partying level</td><td>{{yourPartying}}</td>
-        </tr>
-        <tr>
-          <td>Nerdy level</td><td>{{yourNerdy}}</td>
-        </tr>
-        <tr>
-          <td>Talkative level</td><td>{{yourTalkative}}</td>
-        </tr>
-        <tr>
-          <td>
-            <p>{{yourComment}}</p>
-          </td>
-        </tr>
+        <tr ng-repeat='comment in allComments track by $index'><td>{{comment}}</td></tr>
       </table>
-      <p>Average values</p>
+      <h3>What other friends said about {{ratedUser}}!</h3>
+      <table class="resultTable">
+        <tr>
+          <td>Outdoor activity?</td> <td>{{subject}} {{strActivity}}</td>
+        </tr>
+        <tr>
+          <td>Spending habbit?</td><td>{{subject}} {{strSpending}}</td>
+        </tr>
+        <tr>
+          <td>Party!?!?</td><td>{{subject}} {{strPartying}}</td>
+        </tr>
+        <tr>
+          <td>Talk about work?</td><td>{{subject}} {{strNerdy}}</td>
+        </tr>
+        <tr>
+          <td>Easygoing?</td><td>{{subject}} {{strTalkative}}</td>
+        </tr>
+      </table class="resultTable">
+      <h3>Comments</h3>
       <table>
-        <tr>
-          <td>Activity level</td><td>{{avgActivity}}</td>
-        </tr>
-        <tr>
-          <td>Spending level</td><td>{{avgSpending}}</td>
-        </tr>
-        <tr>
-          <td>Partying level</td><td>{{avgPartying}}</td>
-        </tr>
-        <tr>
-          <td>Nerdy level</td><td>{{avgNerdy}}</td>
-        </tr>
-        <tr>
-          <td>Talkative level</td><td>{{avgTalkative}}</td>
-        </tr>
+        <tr ng-repeat='comment in allComments track by $index'><td>{{comment}}</td></tr>
       </table>
-      <p ng-repeat='comment in allComments track by $index'>{{comment}}</p>
     </div>
   </div>
 </div>

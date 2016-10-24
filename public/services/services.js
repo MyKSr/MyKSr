@@ -24,6 +24,7 @@ angular.module('myksr.services', [])
 .factory('stringifyFunc', function() {
   return {
     strfy : function (type, val) {
+      // console.log(val);
       var index = (val < 33) ? 0 : (val < 66) ? 1 : 2;
       if (type === 'activity') {
         var displayMessages = [',,, once a month ish?', ' joins others.', ' will organize events!'];

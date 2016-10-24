@@ -1,29 +1,34 @@
 <div ng-controller="ProfileCtrl" class="viewInstance">
   <div class="container">
-	  <div class="form-group">
+    <div class="form-group">
 		  <h1>{{firstname}}'s profile</h1>
-		  <p>Username : {{username}}</p>
-		  <p>Gender : {{gender}}</p>
-		  <p>E-mail : {{email}}</p>
-		  <p>Average values</p>
+		  <table class="resultTable">
+			  <tr><td>Username</td> <td>{{username}}</td></tr>
+			  <tr><td>Gender</td><td>{{gender}}</td></tr>
+			  <tr><td>E-mail</td><td>{{email}}</td></tr>
+			</table>
+			<h3>What your friends said about you!</h3>
+			<table class="resultTable">
+		    <tr>
+		      <td>Outdoor activity?</td> <td>{{subject}} {{strActivity}}</td>
+		    </tr>
+		    <tr>
+		      <td>Spending habbit?</td><td>{{subject}} {{strSpending}}</td>
+		    </tr>
+		    <tr>
+		      <td>Party!?!?</td><td>{{subject}} {{strPartying}}</td>
+		    </tr>
+		    <tr>
+		      <td>Talk about work?</td><td>{{subject}} {{strNerdy}}</td>
+		    </tr>
+		    <tr>
+		      <td>Easygoing?</td><td>{{subject}} {{strTalkative}}</td>
+		    </tr>
+		  </table class="resultTable">
+		  <h3>Comments</h3>
 		  <table>
-		    <tr>
-		      <td>Activity level</td><td>{{avgActivity}}</td>
-		    </tr>
-		    <tr>
-		      <td>Spending level</td><td>{{avgSpending}}</td>
-		    </tr>
-		    <tr>
-		      <td>Partying level</td><td>{{avgPartying}}</td>
-		    </tr>
-		    <tr>
-		      <td>Nerdy level</td><td>{{avgNerdy}}</td>
-		    </tr>
-		    <tr>
-		      <td>Talkative level</td><td>{{avgTalkative}}</td>
-		    </tr>
+		  	<tr ng-repeat='comment in allComments track by $index'><td>{{comment}}</td></tr>
 		  </table>
-		  <p ng-repeat='comment in allComments track by $index'>{{comment}}</p>
 		</div>
   </div>
 </div>
