@@ -24,7 +24,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#/signup">Sign Up</a></li>
+          <li ng-show="!isSignedIn()"><a href="#/signup">Sign Up</a></li>
           <li ng-click="isSignedIn()" ng-show="!isSignedIn()"><a href="#/signin">Sign In</a></li>
           <li ng-click="signOut()" ng-show="isSignedIn()"><a href="#/">Sign out</a></li>
           <li ng-show="isSignedIn()"><a href="#/users">View Friends</a></li>
