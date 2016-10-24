@@ -3,34 +3,34 @@
     <div class="form-group">
       <form name="ratingsForm" ng-submit="submit()" id="ratingsForm">
         <div class="ratingInput activity">
-          How often does {{clickedUser}} do an outdoor activity?<br>
-          <span class="lowVal">prefers home </span>
+          Describe {{clickedUser}}'s outdoor activity habits.<br>
+          <span class="lowVal">Likes adventure</span>
           <span> {{clickedUser}}{{activityStr}}</span>
-          <span class="highVal">everyweek for SURE!</span>
+          <span class="highVal">Enjoys relaxing</span>
           <input type="range" min="0" max="100" value="50" ng-model="activityLevel" ng-change="updateStr('activity', {{activityLevel}})"/>
         </div>
 
         <div class="ratingInput spending">
-          How is {{clickedUser}}'s spending habit?<br>
-          <span class="lowVal">saves first</span>
+          How much would {{clickedUser}} be willing to spend on lunch?<br>
+          <span class="lowVal">$5</span>
           <span> {{clickedUser}}{{spendingStr}}</span>
-          <span class="highVal">enjoys first</span>
+          <span class="highVal">$20</span>
           <input type="range" min="0" max="100" value="50" ng-model="spendingLevel" ng-change="updateStr('spending', {{spendingLevel}})"/>
         </div>
 
         <div class="ratingInput activity">
-          How often does {{clickedUser}} PARTY?<br>
-          <span class="lowVal">nonAlchohol</span>
-          <span> {{clickedUser}}{{partyingStr}}</span>
-          <span class="highVal">ANIMAL!</span>
+          On a typical Saturday night, {{clickedUser}}...<br>
+          <span class="lowVal">Party animal</span>
+          <span>{{partyingStr}}</span>
+          <span class="highVal">Homebody</span>
           <input type="range" min="0" max="100" value="50" ng-model="partyingLevel" ng-change="updateStr('partying', {{partyingLevel}})"/>
         </div>
 
         <div class="ratingInput nerdy">
           How often does {{clickedUser}} talk about work/code?<br>
-          <span class="lowVal">rarely </span>
+          <span class="lowVal">Lives and breathes code</span>
           <span> {{clickedUser}}{{nerdyStr}}</span>
-          <span class="highVal">all about!</span>
+          <span class="highVal">What's code?</span>
           <input type="range" min="0" max="100" value="50" ng-model="nerdyLevel" ng-change="updateStr('nerdy', {{nerdyLevel}})"/>
         </div>
 
@@ -42,7 +42,7 @@
           <input type="range" min="0" max="100" value="50" ng-model="talkativeLevel" ng-change="updateStr('talkative', {{talkativeLevel}})"/>
         </div>
 
-        <textarea class="form-control" rows="3" id="textarea" ng-model="comment" name="comment" ng-maxlength="255" placeholder="Leave a comment here"></textarea>
+        <textarea class="form-control" rows="3" id="textarea" ng-model="comment" name="comment" ng-maxlength="255" placeholder="Tell us how awesome {{clickedUser}} is here!"></textarea>
 
         <input type="submit" id="submit" value="Submit" class="btn btn-primary">
       </form>

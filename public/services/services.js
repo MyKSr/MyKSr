@@ -27,13 +27,13 @@ angular.module('myksr.services', [])
       // console.log(val);
       var index = (val < 33) ? 0 : (val < 66) ? 1 : 2;
       if (type === 'activity') {
-        var displayMessages = [',,, once a month ish?', ' joins others.', ' will organize events!'];
+        var displayMessages = [' lives outside.', ' is moderately active.', ' prefers indoor activities.'];
       } else if (type === 'spending') {
-        var displayMessages = [',,, once a month ish?', ' joins others.', ' will organize events!'];
+        var displayMessages = [' prefers to bring lunch from home.', ' prefers casual dining.', ' prefers fine dining.'];
       } else if (type === 'partying') {
-        var displayMessages = [',,, once a month ish?', ' joins others.', ' will organize events!'];
+        var displayMessages = [' likes to go out to bars and clubs.', ' likes to watch movies.', ' is studying.'];
       } else if (type === 'nerdy') {
-        var displayMessages = [',,, once a month ish?', ' joins others.', ' will organize events!'];
+        var displayMessages = [' is rarely seen without his/her laptop.', ' balances work and play.', ' prefers not to talk about code.'];
       } else {
         var displayMessages = [',,, once a month ish?', ' joins others.', ' will organize events!'];
       }
