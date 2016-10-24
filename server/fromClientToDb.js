@@ -24,14 +24,14 @@ module.exports.clickPhotoRequestHandler = function(req, res){
 module.exports.postRatingToDB = (req, res) => {
   var queryString = `INSERT INTO ratings
                      (id, activityLevel, spendingLevel, partyingLevel, nerdyLevel, talkativeLevel, raterId, ratedId, comment) VALUES
-                     (null, '${req.body.ratingsObj.activityLevel}', 
+                     (null, '${req.body.ratingsObj.activityLevel}',
                      '${req.body.ratingsObj.spendingLevel}',
                      '${req.body.ratingsObj.partyingLevel}',
                      '${req.body.ratingsObj.nerdyLevel}',
                      '${req.body.ratingsObj.talkativeLevel}',
                      (SELECT raterId FROM rater WHERE username = '${req.body.raterUsername}'),
                      (SELECT ratedId FROM rated WHERE name = '${req.body.rated}'),
-                     '${req.body.comment}');
+                     "${req.body.comment.replace(/\"/g, "'")}");
                      `;
   db.query(queryString, (err, rows) => {
     if (err) {
@@ -98,7 +98,7 @@ module.exports.currentUserInfoInDB = (req, res) => {
 
 module.exports.getAllRatingsOfUser = (req, res) => {
   var clickedUser = req.params.clickedUser;
-  var queryString = `SELECT * 
+  var queryString = `SELECT *
                      FROM ratings
                      INNER JOIN rated on ratings.ratedId = rated.ratedId
                      INNER JOIN rater on ratings.raterId = rater.raterId
