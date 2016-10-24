@@ -1,5 +1,13 @@
 <div ng-controller="UsersCtrl" class="viewInstance friendPhotoView">
 <!-- 	want to change to click friend, once the function is implemented -->
-  <div class="showpic" ng-repeat='friend in groupFriends' ng-click="clickFriend(currentUser, friend.name)">
+
+  <form class="navbar-form navbar">
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search" ng-model="query">
+    </div>
+    <button type="submit" class="btn btn-default" ng-click="clickHandler()">Submit</button>
+  </form>
+
+  <div class="showpic" ng-repeat='friend in groupFriends | filter:query' ng-click="clickFriend(currentUser, friend.name)">
 		<img class="img-circle friend-pic"ng-src="{{friend.pic}}" />
 </div>

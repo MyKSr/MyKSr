@@ -116,3 +116,6 @@ td {
   text-align: left;
 }
 
+.navbar-form navbar {
+  display: block;
+}
