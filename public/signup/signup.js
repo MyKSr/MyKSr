@@ -28,6 +28,7 @@ angular.module('myksr.signup', [])
 		  		$http.post('/signup', signupUserInfo).then(function () {
 		  			console.log('user successfully signed up');
 	          information.currentUser = $scope.username;
+	          information.currentUserFirstname = $scope.firstname;
 	          $window.location = '#/users';
 		  		});
 		  	}

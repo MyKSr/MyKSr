@@ -1,7 +1,6 @@
 angular.module('myksr.users', [])
 
 .controller('UsersCtrl', function($scope, $window, $http, information) {
-  console.log('Current User: ', information.currentUser);
   $scope.currentUser = information.currentUser;
   // eventually Fetch the users who are in the same group as the rater,
   // for now, fetch all users, then save it as a scope variable
@@ -23,7 +22,6 @@ angular.module('myksr.users', [])
   }
 
   $scope.clickFriend = function(raterUsername, rated) {
-    console.log(raterUsername, rated);
     information.clickedUser = rated;
     var urlString = `/${raterUsername}/${rated}`;
     $http.get(urlString).then(function (response) {

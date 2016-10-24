@@ -8,6 +8,7 @@ angular.module('myksr.signin', [])
 		  $http.get('/currentUserInfo/'+$scope.username).then(function (res) {
 		  	if(res.data[0]){
           information.currentUser = $scope.username;
+          information.currentUserFirstname = res.data[0].firstname;
           $window.location = '#/users';
 		  	}
 		  	else{
