@@ -4,7 +4,7 @@ const db = require('../db/db.js');
 const request = require('request');
 const clientToDB = require('./fromClientToDb');
 const multer  = require('multer');
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'public/uploads/' });
 
 const app = express();
 //set up the port, 3000 by default
@@ -20,7 +20,7 @@ app.use(express.static(`${__dirname}/../node_modules`));
 
 // Get and post requests goes here
 // User signs up
-app.post('/signup', clientToDB.postSignupToDB);
+app.post('/signup', upload.any(), clientToDB.postSignupToDB);
 // User is logs in to see friend's photos
 app.get('/allFriends', clientToDB.fetchAllFriends);
 // User submits their completed post of rating friend

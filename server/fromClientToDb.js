@@ -45,23 +45,23 @@ module.exports.postRatingToDB = (req, res) => {
 }
 
 module.exports.postSignupToDB = (req, res) => {
-  var firstname = req.body.firstname;
-  var lastname = req.body.lastname;
-  var username = req.body.username;
-  var gender = req.body.gender;
-  var email = req.body.email;
-  var password = req.body.password;
-  var queryString = `INSERT INTO rater
-                     (raterId, firstname, lastname, gender, username, email, password) VALUES
-                     (null, '${firstname}', '${lastname}', '${gender}', '${username}', '${email}', '${password}');
-                    `;
-  db.query(queryString, function(err, rows) {
-    if (err) {
-      console.log('Failed to post DB');
-      throw err;
-    }
-    res.send(200, 'Successfully posted the user data');
-  });
+  // var firstname = req.body.firstname;
+  // var lastname = req.body.lastname;
+  // var username = req.body.username;
+  // var gender = req.body.gender;
+  // var email = req.body.email;
+  // var password = req.body.password;
+  // var queryString = `INSERT INTO rater
+  //                    (raterId, firstname, lastname, gender, username, email, password) VALUES
+  //                    (null, '${firstname}', '${lastname}', '${gender}', '${username}', '${email}', '${password}');
+  //                   `;
+  // db.query(queryString, function(err, rows) {
+  //   if (err) {
+  //     console.log('Failed to post DB');
+  //     throw err;
+  //   }
+    res.send(200, req.files);
+  // });
 }
 
 module.exports.fetchAllFriends = (req, res) => {

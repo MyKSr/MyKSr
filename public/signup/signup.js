@@ -2,6 +2,7 @@ angular.module('myksr.signup', [])
 
 .controller('signupCtrl', function ($scope, $http, $window, information) {
 	$scope.submitSignup = function (){
+		console.dir(document.getElementById('inputFile'));
 		var signupUserInfo = {
 			firstname : $scope.firstname,
       lastname : $scope.lastname,
