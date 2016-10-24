@@ -48,39 +48,17 @@ myksr.controller('appCtrl', function($scope, $window, information, $http){
     console.log('post user to db');
   }
 
-  $window.onLoadCallback = function(){
-    gapi.load('auth2', function(){
-      gapi.auth2.init();
-    });
-  };
-
-  $window.onSignIn = function(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    information.currentUser = profile.getGivenName();
-    information.image = profile.getImageUrl();
-     $http.get('/currentUserInfo/'+profile.getGivenName()).then(function(res){
-        console.log('SIGNED IN USER', res.data);
-        if(!res.data[0]){
-         $http.post('/signup', {
-            firstname: profile.getGivenName(),
-            lastname: profile.getFamilyName(),
-            gender: 'X',
-            username: profile.getGivenName(),
-            email: profile.getEmail(),
-            password: profile.getImageUrl()
-         });
-        }
-        $window.location = '#/users';
-     })
-
+  $scope.signOut = function(){
+    information.currentUser = null;
+    $window.location = '#/';
   }
 
-  $window.signOut = function(){
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function() {
-      information.currentUser = '';
-      $window.location = '#/login';
-      console.log('User signed out');
-    });
+  $scope.isSignedIn = function(){
+    console.log('USER STATUS ', information.currentUser);
+    if(information.currentUser){
+      return true;
+    } else {
+      return false;
+    }
   }
 });
