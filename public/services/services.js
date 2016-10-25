@@ -35,7 +35,7 @@ angular.module('myksr.services', [])
       } else if (type === 'nerdy') {
         var displayMessages = [' is rarely seen without his/her laptop.', ' balances work and play.', ' prefers not to talk about code.'];
       } else {
-        var displayMessages = [',,, once a month ish?', ' joins others.', ' will organize events!'];
+        var displayMessages = [' is very social and lively.', ' adapts to his/her environment.', ' is more quiet and reserved.'];
       }
       return displayMessages[index];
     }
