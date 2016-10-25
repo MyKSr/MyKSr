@@ -1,4 +1,4 @@
-const myksr = angular.module('myksr', [ 'myksr.ratings', 'myksr.profile', 'myksr.result', 'myksr.services', 'myksr.users', 'myksr.signup', 'myksr.signin', 'ngRoute', 'flow']);
+const myksr = angular.module('myksr', [ 'myksr.ratings', 'myksr.profile', 'myksr.result', 'myksr.services', 'myksr.users', 'myksr.signup', 'myksr.signin', 'ngRoute', 'ngFileUpload']);
 
 myksr.config(function($routeProvider) {
 
