@@ -6,20 +6,15 @@ angular.module('myksr.users', [])
   // for now, fetch all users, then save it as a scope variable
   // have it rendered on html using ng repeat
   $scope.groupFriends = [];
-  $scope.fetchGroupMembers =  function() {
-    $http.get('/allFriends').then(function (response) {
-      //expect to get an array of data
-      console.log('Successfully fetched all users from server');
-      $scope.groupFriends = response.data;
-    }, function (error) {
-      console.log('Only friend in our db in the same group as you is the owl.');
-      console.log('Actually I failed to fetch data...');
-      $scope.groupFriends = [{name:'owl'}];
-    });
-  }
-  $scope.rate = function() {
-    $window.location = '#/ratings';
-  }
+  $http.get('/allFriends').then(function (response) {
+    //expect to get an array of data
+    // console.log('Successfully fetched all users from server');
+    $scope.groupFriends = response.data;
+  }, function (error) {
+    // console.log('Only friend in our db in the same group as you is the owl.');
+    console.log('failed to fetch all friends', error);
+    // $scope.groupFriends = [{name:'owl'}];
+  });
 
   $scope.clickFriend = function(raterUsername, rated) {
     information.clickedUser = rated;
@@ -37,8 +32,4 @@ angular.module('myksr.users', [])
 
     });
   }
-  var init = function () {
-    $scope.fetchGroupMembers();
-  };
-  init();
 });

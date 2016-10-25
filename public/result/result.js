@@ -8,19 +8,31 @@ angular.module('myksr.result', ['myksr.services'])
   $scope.avgNerdy = 0;
   $scope.avgTalkative = 0;
   $http.get(`/getAllRatings/${information.clickedUser}`).then(function (res) {
-    //This should never happen because, the user would have been directed to 
+    $scope.subject = (res.data[0].gender === "M") ? "He" : "She";
+    var thisPerson = (res.data[0].gender === "M") ? "him" : "her";
+    //This should never happen because, the user would have been directed to
     // rating page, not result page if the user has not rated this friend
   	$scope.allComments = [];
     if (!res.data[0]) {
-    	alert('This person has not been rated yet');
-    	$scope.yourRating = 0;
-    	$scope.yourComment = 'You have not rated this person';
+      $scope.currnetUserName = ratingObj.firstname;
+      $scope.yourActivity = `You haven't rated ${thisPerson}!`;
+      $scope.yourSpending = `You haven't rated ${thisPerson}!`;
+      $scope.yourPartying = `You haven't rated ${thisPerson}!`;
+      $scope.yourNerdy = `You haven't rated ${thisPerson}!`;
+      $scope.yourTalkative = `You haven't rated ${thisPerson}!`;
+    	$scope.yourComment = `You haven't rated ${thisPerson}!`;
+
+      $scope.strActivity = `Nobody has rated ${thisPerson}!`;
+      $scope.strSpending = `Nobody has rated ${thisPerson}!`;
+      $scope.strPartying = `Nobody has rated ${thisPerson}!`;
+      $scope.strNerdy = `Nobody has rated ${thisPerson}!`;
+      $scope.strTalkative = `Nobody has rated ${thisPerson}!`;
     } else {
     	var count = 0;
     	for (var ratingObj of res.data) {
     		count++;
         if (ratingObj.username === information.currentUser) {
-        	$scope.currnetUserName = ratingObj.firstname;
+        	$scope.currentUserName = ratingObj.firstname;
           $scope.yourActivity = stringifyFunc.strfy('activity', ratingObj.activityLevel);
           $scope.yourSpending = stringifyFunc.strfy('spending', ratingObj.spendingLevel);
           $scope.yourPartying = stringifyFunc.strfy('partying', ratingObj.partyingLevel);

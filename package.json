@@ -17,7 +17,10 @@
     "bootstrap": "^3.3.7",
     "express": "^4.14.0",
     "jquery": "^3.1.1",
+    "multer": "^1.2.0",
     "mysql": "^2.11.1",
+    "ng-file-upload": "^12.2.12",
+    "ng-flow": "^2.1.4",
     "path": "^0.12.7",
     "react": "^15.3.2",
     "request": "^2.75.0"
