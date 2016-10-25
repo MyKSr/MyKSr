@@ -35,10 +35,10 @@
         </div>
 
         <div class="ratingInput talkative">
-          How easygoing is {{clickedUser}}?<br>
-          <span class="lowVal"></span>
+          Describe {{clickedUser}}'s personality.<br>
+          <span class="lowVal">Extroverted</span>
           <span> {{clickedUser}}{{talkativeStr}}</span>
-          <span class="highVal">very!</span>
+          <span class="highVal">Introverted</span>
           <input type="range" min="0" max="100" value="50" ng-model="talkativeLevel" ng-change="updateStr('talkative', {{talkativeLevel}})"/>
         </div>
 
