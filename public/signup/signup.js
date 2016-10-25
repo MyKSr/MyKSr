@@ -3,6 +3,7 @@ angular.module('myksr.signup', [])
 .controller('signupCtrl', function ($scope, $http, $window, information, Upload) {
 	$scope.submitSignup = function (){
 		console.log("The file", $scope.file);
+		// upload on file select or drop
 		var signupUserInfo = {
 			firstname : $scope.firstname,
       lastname : $scope.lastname,
@@ -10,7 +11,7 @@ angular.module('myksr.signup', [])
       email : $scope.email,
       password : $scope.password1,
       gender : $scope.gender,
-			pic: $scope.file
+			file: $scope.file
 		}
 		var emptyField = false;
 		for (var info in signupUserInfo) {
@@ -27,26 +28,20 @@ angular.module('myksr.signup', [])
 		  $http.get('/currentUserInfo/'+$scope.username).then(function (res) {
 		  	// console.log('This is what we get back', res.data);
 		  	if(!res.data[0]){
-		  		$http.post('/signup', signupUserInfo).then(function () {
+		  		Upload.upload({
+						url: '/signup',
+						data: signupUserInfo
+					}).then(function (resp) {
 		  			// console.log('user successfully signed up');
 	          information.currentUser = $scope.username;
 	          information.currentUserFirstname = $scope.firstname;
-	          $window.location = '#/users';
-		  		}).then(function () {
-						// upload on file select or drop
-				    $scope.upload = function () {
-			        Upload.upload({
-		            url: '/upload',
-		            data: {file: $scope.file, 'username': $scope.username}
-			        }).then(function (resp) {
-			          console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-			        }, function (resp) {
-			          console.log('Error status: ' + resp.status);
-			        }, function (evt) {
-			          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-			          console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-			        });
-				    };
+						$window.location = '#/users';
+						console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
+		  		}, function (resp) {
+						console.log('Error status: ' + resp.status);
+					}, function (evt) {
+						var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+						console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
 					});
 		  	}
 		  	else{

@@ -45,23 +45,25 @@ module.exports.postRatingToDB = (req, res) => {
 }
 
 module.exports.postSignupToDB = (req, res) => {
-  // var firstname = req.body.firstname;
-  // var lastname = req.body.lastname;
-  // var username = req.body.username;
-  // var gender = req.body.gender;
-  // var email = req.body.email;
-  // var password = req.body.password;
-  // var queryString = `INSERT INTO rater
-  //                    (raterId, firstname, lastname, gender, username, email, password) VALUES
-  //                    (null, '${firstname}', '${lastname}', '${gender}', '${username}', '${email}', '${password}');
-  //                   `;
-  // db.query(queryString, function(err, rows) {
-  //   if (err) {
-  //     console.log('Failed to post DB');
-  //     throw err;
-  //   }
-    res.send(200, req.files);
-  // });
+  var firstname = req.body.firstname;
+  var lastname = req.body.lastname;
+  var username = req.body.username;
+  var gender = req.body.gender;
+  var email = req.body.email;
+  var password = req.body.password;
+  var picture = req.files[0].path.slice(9);
+
+  var queryString = `INSERT INTO rater
+                     (raterId, firstname, lastname, gender, username, email, password, picture) VALUES
+                     (null, '${firstname}', '${lastname}', '${gender}', '${username}', '${email}', '${password}', '${picture}');
+                    `;
+  db.query(queryString, function(err, rows) {
+    if (err) {
+      console.log('Failed to post DB');
+      throw err;
+    }
+    res.send(200, rows);
+  });
 }
 
 module.exports.fetchAllFriends = (req, res) => {

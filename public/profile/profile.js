@@ -7,6 +7,7 @@ angular.module('myksr.profile', [])
     $scope.avgPartying = 0;
     $scope.avgNerdy = 0;
     $scope.avgTalkative = 0;
+    $scope.picture = res.data[0].picture;
     $scope.firstname = res.data[0].firstname;
     $scope.lastname = res.data[0].lastname;
     $scope.gender = res.data[0].gender;
