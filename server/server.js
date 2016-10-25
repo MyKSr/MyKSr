@@ -34,6 +34,8 @@ app.post('/postrating', clientToDB.postRatingToDB);
 app.get('/currentUserInfo/:username', clientToDB.currentUserInfoInDB);
 // User clicks friend's photo, who they have already rated
 app.get('/getAllRatings/:clickedUser', clientToDB.getAllRatingsOfUser);
+// Get rated gender
+app.get('/getRatedGender/:clickedUser', clientToDB.getRatedGender);
 // User clicks friend's photo to rate, or see their current rating
 app.get('/:raterUsername/:rated', clientToDB.clickPhotoRequestHandler);
 
