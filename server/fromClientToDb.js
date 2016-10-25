@@ -113,3 +113,17 @@ module.exports.getAllRatingsOfUser = (req, res) => {
     res.send(200, rows);
   });
 }
+
+module.exports.getRatedGender = (req, res) => {
+  var clickedUser = req.params.clickedUser;
+  var queryString = `SELECT gender
+                    FROM rated WHERE
+                    name = '${clickedUser}'`;
+  db.query(queryString, (err, rows) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(200, rows);
+    }
+  });
+}

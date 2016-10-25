@@ -7,8 +7,11 @@ angular.module('myksr.result', ['myksr.services'])
   $scope.avgPartying = 0;
   $scope.avgNerdy = 0;
   $scope.avgTalkative = 0;
-  $http.get(`/getAllRatings/${information.clickedUser}`).then(function (res) {
+  $http.get(`/getRatedGender/${information.clickedUser}`).then(function (res) {
+    console.log('RATED DATA ', res.data);
     $scope.subject = (res.data[0].gender === "M") ? "He" : "She";
+  });
+  $http.get(`/getAllRatings/${information.clickedUser}`).then(function (res) {
     var thisPerson = (res.data[0].gender === "M") ? "him" : "her";
     //This should never happen because, the user would have been directed to
     // rating page, not result page if the user has not rated this friend
