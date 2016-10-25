@@ -13,6 +13,7 @@ CREATE TABLE rater (
   username varchar(20),
   email varchar(100),
   password varchar(100),
+  picture varchar(255),
   PRIMARY KEY(raterId)
 );
 
