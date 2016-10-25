@@ -51,7 +51,8 @@ module.exports.postSignupToDB = (req, res) => {
   var gender = req.body.gender;
   var email = req.body.email;
   var password = req.body.password;
-  var picture = req.files[0].destination;
+  var picture = req.files[0].path.slice(9);
+
   var queryString = `INSERT INTO rater
                      (raterId, firstname, lastname, gender, username, email, password, picture) VALUES
                      (null, '${firstname}', '${lastname}', '${gender}', '${username}', '${email}', '${password}', '${picture}');
@@ -61,7 +62,7 @@ module.exports.postSignupToDB = (req, res) => {
       console.log('Failed to post DB');
       throw err;
     }
-    res.send(200, req.files);
+    res.send(200, rows);
   });
 }
 

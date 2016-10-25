@@ -14,12 +14,12 @@ angular.module('myksr.signup', [])
 			file: $scope.file
 		}
 		var emptyField = false;
-		// for (var info in signupUserInfo) {
-		// 	// console.log('for in loop', signupUserInfo[info]);
-		// 	if (!signupUserInfo[info]) {
-    //     emptyField = true;
-		// 	}
-		// }
+		for (var info in signupUserInfo) {
+			// console.log('for in loop', signupUserInfo[info]);
+			if (!signupUserInfo[info]) {
+        emptyField = true;
+			}
+		}
 		if (emptyField){
       alert('There is an empty field please fill all of the fields');
 		}else if ($scope.password1 !== $scope.password2) {
@@ -35,8 +35,8 @@ angular.module('myksr.signup', [])
 		  			// console.log('user successfully signed up');
 	          information.currentUser = $scope.username;
 	          information.currentUserFirstname = $scope.firstname;
+						$window.location = '#/users';
 						console.log('Success ' + resp.config.data.file.name + 'uploaded. Response: ' + resp.data);
-	          $window.location = '#/users';
 		  		}, function (resp) {
 						console.log('Error status: ' + resp.status);
 					}, function (evt) {
